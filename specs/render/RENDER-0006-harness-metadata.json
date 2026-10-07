@@ -1,0 +1,249 @@
+{
+  "id": "RENDER-0006",
+  "status": "READY_FOR_IMPLEMENTATION",
+  "original": {
+    "sha256": "77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6",
+    "base": "0x400000",
+    "image_size": "0x19F000"
+  },
+  "hook": {
+    "thunk_rva": "0x1497",
+    "body_rva": "0x69A0",
+    "span": 5,
+    "kind": "metadata-only synthesized direct jump",
+    "native_return_rva": "0x5FEF"
+  },
+  "abi": {
+    "kind": "thiscall",
+    "ecx": "owner",
+    "stack": [
+      "model pointer"
+    ],
+    "callee_cleanup": 4,
+    "return": "uint32 EAX; see spec"
+  },
+  "callbacks": [
+    {
+      "role": "mesh_gate",
+      "thunk_rva": "0x1C35",
+      "body_rva": "0x94E0",
+      "abi": "thiscall",
+      "ecx": "model+24",
+      "cleanup": 0
+    },
+    {
+      "role": "mesh_lookup",
+      "thunk_rva": "0x13FC",
+      "body_rva": "0x9550",
+      "abi": "thiscall",
+      "ecx": "model+24",
+      "stack": [
+        "int32 index"
+      ],
+      "cleanup": 4
+    },
+    {
+      "role": "skin_lookup",
+      "thunk_rva": "0x173F",
+      "body_rva": "0x9300",
+      "abi": "thiscall",
+      "ecx": "model+8",
+      "stack": [
+        "int32 index"
+      ],
+      "cleanup": 4
+    }
+  ],
+  "iat": [
+    {
+      "name": "glEnable",
+      "rva": "0x18CA68",
+      "args": [
+        "u32"
+      ],
+      "abi": "stdcall",
+      "cleanup": 4
+    },
+    {
+      "name": "glBindTexture",
+      "rva": "0x18CA58",
+      "args": [
+        "u32",
+        "u32"
+      ],
+      "abi": "stdcall",
+      "cleanup": 8
+    },
+    {
+      "name": "glBegin",
+      "rva": "0x18CA8C",
+      "args": [
+        "u32"
+      ],
+      "abi": "stdcall",
+      "cleanup": 4
+    },
+    {
+      "name": "glTexCoord2f",
+      "rva": "0x18CA88",
+      "args": [
+        "f32",
+        "f32"
+      ],
+      "abi": "stdcall",
+      "cleanup": 8
+    },
+    {
+      "name": "glNormal3f",
+      "rva": "0x18CA84",
+      "args": [
+        "f32",
+        "f32",
+        "f32"
+      ],
+      "abi": "stdcall",
+      "cleanup": 12
+    },
+    {
+      "name": "glVertex3f",
+      "rva": "0x18CA80",
+      "args": [
+        "f32",
+        "f32",
+        "f32"
+      ],
+      "abi": "stdcall",
+      "cleanup": 12
+    },
+    {
+      "name": "glEnd",
+      "rva": "0x18CA7C",
+      "args": [],
+      "abi": "stdcall",
+      "cleanup": 0
+    }
+  ],
+  "layout": {
+    "model_span": 80,
+    "mesh_stride": 288,
+    "skin_stride": 536,
+    "skin_read_span": 520,
+    "positions_stride": 12,
+    "normals_stride": 12,
+    "uv_stride": 8,
+    "triangle_stride": 24,
+    "model": {
+      "mesh_count": 0,
+      "skin_collection": 8,
+      "mesh_collection": 24,
+      "frame_a": 48,
+      "frame_b": 52,
+      "factor": 76
+    },
+    "mesh": {
+      "vertex_count": 0,
+      "triangle_count": 4,
+      "skin_index": 12,
+      "textured_byte": 16,
+      "positions": 272,
+      "normals": 276,
+      "uv": 280,
+      "triangles": 284
+    },
+    "skin": {
+      "texture_index": 516
+    },
+    "owner_texture_base": 4
+  },
+  "fp": {
+    "cw": "0x027F",
+    "compare": "EXACT float32 argument bits",
+    "operation": "sequential (B-A)*factor+A at x87 53-bit intermediates, final f32 store",
+    "component_order": [
+      "z",
+      "y",
+      "x"
+    ]
+  },
+  "capture": {
+    "kind": "typed source data only",
+    "actor_global": "UNKNOWN",
+    "scope": "caller return RVA0x5FEF plus verified readable finite bounded inputs",
+    "required": [
+      "owner texture entries referenced by skin records",
+      "model fields and collections",
+      "mesh records",
+      "skin records",
+      "frame array bounds",
+      "positions/normals frame payload",
+      "UV pairs",
+      "24-byte triangles",
+      "GL ordered rawbits",
+      "EAX",
+      "two distinct moving poses"
+    ],
+    "fixed_engine_capacity": null
+  },
+  "loader_witness": {
+    "cleanup": 8,
+    "triangles_bytes": "24*T",
+    "abi": "thiscall",
+    "thunk_rva": "0x144C",
+    "loader_frames": 80,
+    "manifest": "RENDER-0006-approved-bhm-bounds.json",
+    "native_first_scope": "registered successful hash-bound loader witness, current pointer/count matches, frame0..748, all mesh textured bytes zero",
+    "success": "AL == 1; preserve full EAX unchanged",
+    "loader_surface_count": 88,
+    "ecx": "loader",
+    "capture": "entry identity+filename; after original return success model mesh pointers and loader header",
+    "texture_capacity": "UNKNOWN; textured native calls fallback",
+    "positions_bytes": "12*749*V",
+    "loader_tags": 84,
+    "stack": [
+      "model pointer",
+      "filename pointer"
+    ],
+    "normals_bytes": "12*749*V",
+    "body_rva": "0x7160",
+    "uv_bytes": "8*V",
+    "loader_header": 4,
+    "status": "READY_FOR_IMPLEMENTATION_AND_RUNTIME_VALIDATION",
+    "lifetime": "Copy terminated filename at entry; copy loader header immediately after return before wrapper returns; retain model identity only",
+    "registration": "Invalidate prior model registration at every loader entry; replace only on AL1+root-preverified asset hash+header/surface/returned mesh matches; failed load remains invalid",
+    "draw_revalidation": [
+      "model lifetime in observed owner/disposable startup",
+      "mesh collection begin/end",
+      "mesh record identity",
+      "vertex/triangle counts",
+      "position/normal/UV/triangle pointers",
+      "all triangle indices within V",
+      "frame A/B0..748",
+      "textured byte0",
+      "finite source/factor and CW027F"
+    ],
+    "header_representation": {
+      "signature_ascii": "IDP3",
+      "loader_signature": 4,
+      "kind": "raw 108-byte file header copy; unchanged after successful valid-file loader return",
+      "bytes": 108,
+      "loader_version": 8,
+      "signature_u32le": 860898377,
+      "original_signature_validation": false,
+      "provenance": [
+        "407205 file bytes0..107 toL+4..111",
+        "407280 temporary pointer writesL+112 and above",
+        "401523->408700 fclose only; header retained"
+      ],
+      "confidence": "CONFIRMED",
+      "copied_header_offsets": {
+        "surfaces": 84,
+        "frames": 76,
+        "tags": 80,
+        "signature": 0,
+        "version": 4
+      },
+      "signature_u32le_hex": "0x33504449",
+      "version_i32le": 15
+    }
+  }
+}

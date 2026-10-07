@@ -1,0 +1,419 @@
+{
+  "unit": "RENDER-0005",
+  "status": "APPROVED_HARNESS_METADATA",
+  "original_sha256": "77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6",
+  "preferred_base": "0x400000",
+  "image_size": "0x19F000",
+  "route": {
+    "thunk_rva": "0x1B54",
+    "body_rva": "0x26B00",
+    "patch_length": 5,
+    "abi": "thiscall_ECX_model_noargs_EAX32_final_restore_residue"
+  },
+  "native_map_pointer_global_rva": "0x185560",
+  "other_model_pointer_global_rva": "0x185568",
+  "native_identity_rule": "ECX equals nonnull live map pointer; other model routes original fallback before effects",
+  "model_fixture": {
+    "bytes": 580036,
+    "vtable_required": false,
+    "constructor_required": false,
+    "original_destructor_allowed": false,
+    "mesh_count_offset": "0x8D9A4",
+    "mesh_pointer_offset": "0x8D9A8",
+    "material_count_offset": "0x8D9AC",
+    "material_pointer_offset": "0x8D9B0",
+    "triangle_count_offset": "0x8D9B4",
+    "triangle_pointer_offset": "0x8D9B8",
+    "vertex_count_offset": "0x8D9BC",
+    "vertex_pointer_offset": "0x8D9C0",
+    "mesh_stride": 12,
+    "material_stride": 80,
+    "triangle_stride": 76,
+    "vertex_stride": 16,
+    "membership_index_stride": 4
+  },
+  "gl_slots": [
+    {
+      "name": "glIsEnabled",
+      "rva": "0x18CAEC",
+      "abi": "stdcall(cap32),callee4,AL8boolean"
+    },
+    {
+      "name": "glMaterialfv",
+      "rva": "0x18CAE8",
+      "abi": "stdcall(face32,pname32,float4ptr),callee12",
+      "snapshot_pointer_bytes": 16
+    },
+    {
+      "name": "glMaterialf",
+      "rva": "0x18CAE4",
+      "abi": "stdcall(face32,pname32,float32),callee12"
+    },
+    {
+      "name": "glBindTexture",
+      "rva": "0x18CA58",
+      "abi": "stdcall(target32,id32),callee8"
+    },
+    {
+      "name": "glEnable",
+      "rva": "0x18CA68",
+      "abi": "stdcall(cap32),callee4,EAXresidue_final"
+    },
+    {
+      "name": "glDisable",
+      "rva": "0x18CAB8",
+      "abi": "stdcall(cap32),callee4,EAXresidue_final"
+    },
+    {
+      "name": "glBegin",
+      "rva": "0x18CA8C",
+      "abi": "stdcall(mode32),callee4"
+    },
+    {
+      "name": "glNormal3fv",
+      "rva": "0x18CADC",
+      "abi": "stdcall(float3ptr),callee4",
+      "snapshot_pointer_bytes": 12
+    },
+    {
+      "name": "glTexCoord2f",
+      "rva": "0x18CA88",
+      "abi": "stdcall(sfloat32,tfloat32),callee8"
+    },
+    {
+      "name": "glVertex3fv",
+      "rva": "0x18CAD8",
+      "abi": "stdcall(float3ptr),callee4",
+      "snapshot_pointer_bytes": 12
+    },
+    {
+      "name": "glEnd",
+      "rva": "0x18CA7C",
+      "abi": "stdcall_noargs"
+    }
+  ],
+  "opaque_slots": [
+    {
+      "name": "material_vector",
+      "rva": "0x1855CC",
+      "abi": "stdcall(handle32,RGBAfloat32),callee20"
+    },
+    {
+      "name": "material_scalar",
+      "rva": "0x1855D8",
+      "abi": "stdcall(handle32,float32),callee8"
+    }
+  ],
+  "opaque_handle_rvas_in_order": [
+    "0x1850E0",
+    "0x17564C",
+    "0x17D900",
+    "0x1842B4",
+    "0x176A14"
+  ],
+  "constants": {
+    "texture_cap": "0x0DE1",
+    "material_face": "0x0404",
+    "pnames": [
+      "0x1200",
+      "0x1201",
+      "0x1202",
+      "0x1600",
+      "0x1601"
+    ],
+    "triangle_mode": 4,
+    "geometry_threshold_float32_bits": "0x3ECCCCCD",
+    "opaque_alpha_bits": "0x3F800000"
+  },
+  "native_first_scope": "valid mapglobal fixture, finite field68, valid nonnegative material/triangle/vertex indices, original callback pointers and render context; reject before IsEnabled",
+  "isolated": "disposable initialized original process main parked; patch IAT/opaque data slots to recorders only; noGPU; never original destructor on synthetic storage; terminate afterward",
+  "capture": "typed used model fields plus materials80,meshes12,each int32membershiplist,triangles76,vertices16; pointer-role normalization; source-vector immediate rawbits; native first and later frame ordered callback digest+bounded sample",
+  "comparison": "EXACT values/bits/order/EAX/state, normalized source pointer identities, stack/nonvolatile and x87 status/control",
+  "raw_original_code_included": false,
+  "approved_native_source_fixtures": [
+    {
+      "path": "base/maps/1/map.ms3d",
+      "sha256": "36b60f829267a4a68fc35ce97b145490e6aa3cabb07ad8531ca6338454c58775",
+      "counts": {
+        "vertices": 1806,
+        "triangles": 2788,
+        "groups": 27,
+        "materials": 27
+      },
+      "group_triangle_counts": [
+        14,
+        8,
+        454,
+        72,
+        256,
+        27,
+        2,
+        79,
+        116,
+        76,
+        360,
+        60,
+        154,
+        96,
+        12,
+        38,
+        40,
+        282,
+        40,
+        176,
+        208,
+        44,
+        23,
+        2,
+        40,
+        31,
+        78
+      ]
+    },
+    {
+      "path": "base/maps/2/map.ms3d",
+      "sha256": "293cd8c7ae9b3d391eadca44de925814f046c443a49bd3ed1440759bad0c79be",
+      "counts": {
+        "vertices": 2303,
+        "triangles": 2989,
+        "groups": 28,
+        "materials": 28
+      },
+      "group_triangle_counts": [
+        24,
+        18,
+        16,
+        118,
+        28,
+        1221,
+        260,
+        2,
+        17,
+        48,
+        42,
+        22,
+        6,
+        124,
+        31,
+        81,
+        80,
+        36,
+        20,
+        100,
+        18,
+        36,
+        17,
+        508,
+        36,
+        8,
+        36,
+        36
+      ]
+    },
+    {
+      "path": "base/maps/3/map.ms3d",
+      "sha256": "5d46b4e6ebcd9bd1d33361252f9e438e98465d694bcb12185e6eccde6ab2ccb0",
+      "counts": {
+        "vertices": 2303,
+        "triangles": 3073,
+        "groups": 25,
+        "materials": 25
+      },
+      "group_triangle_counts": [
+        12,
+        1173,
+        6,
+        16,
+        16,
+        30,
+        483,
+        16,
+        60,
+        420,
+        24,
+        84,
+        44,
+        12,
+        162,
+        8,
+        2,
+        9,
+        2,
+        136,
+        72,
+        76,
+        60,
+        30,
+        120
+      ]
+    },
+    {
+      "path": "base/maps/4/map.ms3d",
+      "sha256": "e7c0ea6cc968bf2a56aaf6b279ba7adbf8d75200bdc1e24361986ea6918dc1a3",
+      "counts": {
+        "vertices": 2588,
+        "triangles": 3002,
+        "groups": 25,
+        "materials": 25
+      },
+      "group_triangle_counts": [
+        450,
+        38,
+        146,
+        126,
+        126,
+        108,
+        212,
+        24,
+        102,
+        26,
+        322,
+        730,
+        312,
+        26,
+        84,
+        8,
+        8,
+        60,
+        4,
+        28,
+        22,
+        12,
+        6,
+        12,
+        10
+      ]
+    },
+    {
+      "path": "base/maps/5/map.ms3d",
+      "sha256": "df14be28d1cd4720b2e509d1cc1eb0c0d27bf15ab6aece5984a9224ae3252f2a",
+      "counts": {
+        "vertices": 2408,
+        "triangles": 2950,
+        "groups": 30,
+        "materials": 30
+      },
+      "group_triangle_counts": [
+        32,
+        172,
+        6,
+        174,
+        14,
+        167,
+        6,
+        98,
+        208,
+        45,
+        96,
+        371,
+        52,
+        524,
+        416,
+        8,
+        6,
+        2,
+        2,
+        6,
+        86,
+        26,
+        13,
+        18,
+        30,
+        168,
+        18,
+        136,
+        20,
+        30
+      ]
+    },
+    {
+      "path": "base/maps/6/map.ms3d",
+      "sha256": "e834536084b8fe6a44a349cbdbfbbb3e1fe34b6d16f223f9f2f342aa07848a6a",
+      "counts": {
+        "vertices": 2684,
+        "triangles": 2993,
+        "groups": 38,
+        "materials": 38
+      },
+      "group_triangle_counts": [
+        86,
+        26,
+        31,
+        30,
+        126,
+        12,
+        2,
+        2,
+        54,
+        860,
+        32,
+        32,
+        182,
+        125,
+        6,
+        14,
+        10,
+        4,
+        88,
+        80,
+        44,
+        53,
+        78,
+        8,
+        8,
+        125,
+        51,
+        20,
+        28,
+        4,
+        10,
+        10,
+        8,
+        40,
+        136,
+        38,
+        494,
+        36
+      ]
+    },
+    {
+      "path": "base/maps/7/map.ms3d",
+      "sha256": "614a2bc7244181e002cc15b97b3d3adf355539976725ea1d4df3a2ac15403625",
+      "counts": {
+        "vertices": 2979,
+        "triangles": 3214,
+        "groups": 20,
+        "materials": 20
+      },
+      "group_triangle_counts": [
+        48,
+        184,
+        98,
+        187,
+        72,
+        4,
+        40,
+        11,
+        6,
+        72,
+        72,
+        112,
+        32,
+        500,
+        62,
+        36,
+        242,
+        1254,
+        102,
+        80
+      ]
+    }
+  ],
+  "initial_map1_tuple": {
+    "vertices": 1806,
+    "triangles": 2788,
+    "materials": 27,
+    "meshes": 27
+  },
+  "capture_limit_policy": "Resource limits are harness configuration, never original renderer capacity. Reject/fallback before effects if limit exceeded; never truncate renderer traversal. Installed fixture maximum3214 triangles does not prove engine cap."
+}

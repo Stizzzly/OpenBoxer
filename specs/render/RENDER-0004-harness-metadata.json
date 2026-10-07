@@ -1,0 +1,175 @@
+{
+  "unit": "RENDER-0004",
+  "status": "APPROVED_HARNESS_METADATA",
+  "original_sha256": "77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6",
+  "preferred_base": "0x400000",
+  "image_size": "0x19F000",
+  "route": {
+    "thunk_rva": "0x16E0",
+    "body_rva": "0x362A0",
+    "patch_length": 5,
+    "interface": "cdecl_noargs_EAX32_final_scalar_callback"
+  },
+  "isolated_process": "Initialized original, main parked, quiescent dependencies, disposable never-resume after intercepts; terminate afterward",
+  "record_window": {
+    "rva": "0x178110",
+    "stride": 56,
+    "slots": 3,
+    "bytes": 168,
+    "ownership": "original static module data",
+    "always_publish_first_three": true
+  },
+  "count_rva": "0x177F88",
+  "mode_rva": "0x184770",
+  "direction_xyz_rva": "0x184C98",
+  "sin_input_rva": "0x184C90",
+  "native_first_scope": {
+    "count": 3,
+    "mode": "mode1 accepted only after isolated branch PASS; other modes as independently validated",
+    "x87_cw": "0x027F",
+    "finite_inputs": true
+  },
+  "dependencies": [
+    {
+      "name": "initialize_xyz",
+      "thunk_rva": "0x1839",
+      "body_rva": "0x1EAB0",
+      "abi": "thiscall(this,XYZ32),callee12,EAX=this",
+      "write_bytes": 12,
+      "scratch_bytes": 16
+    },
+    {
+      "name": "component_pointer",
+      "thunk_rva": "0x19C9",
+      "body_rva": "0x1B8F0",
+      "abi": "thiscall(this,index32),callee4,EAX=float32ptr"
+    },
+    {
+      "name": "normalize",
+      "thunk_rva": "0x1811",
+      "body_rva": "0x20C90",
+      "abi": "thiscall(this),noargs,EAXignored"
+    },
+    {
+      "name": "angular",
+      "thunk_rva": "0x17F8",
+      "body_rva": "0x25010",
+      "abi": "cdecl(vector16byvalue,vector16byvalue),caller32,doubleST0"
+    },
+    {
+      "name": "magnitude",
+      "thunk_rva": "0x11E0",
+      "body_rva": "0x1B730",
+      "abi": "cdecl(float32),caller4,FP_ST0"
+    },
+    {
+      "name": "rotate",
+      "thunk_rva": "0x101E",
+      "body_rva": "0x1BB20",
+      "abi": "cdecl(out16ptr,vector16byvalue,angle32,axisXYZ32),caller36,EAX=outptr"
+    },
+    {
+      "name": "sin",
+      "body_rva": "0x95C34",
+      "abi": "cdecl(double),caller8,doubleST0"
+    },
+    {
+      "name": "wave",
+      "thunk_rva": "0x1393",
+      "body_rva": "0x36180",
+      "abi": "cdecl_noargs_EAXignored"
+    },
+    {
+      "name": "vector_dispatch",
+      "pointer_slot_rva": "0x1855CC",
+      "abi": "stdcall(handle32,RGBAfloat32),callee20,EAXignored"
+    },
+    {
+      "name": "scalar_dispatch",
+      "pointer_slot_rva": "0x1855DC",
+      "abi": "stdcall(handle32,parameterBits32),callee8,EAXforwarded_final_only"
+    }
+  ],
+  "selected_output_windows": [
+    {
+      "bytes": 12,
+      "rva": "0x170178"
+    },
+    {
+      "bytes": 12,
+      "rva": "0x170188"
+    },
+    {
+      "bytes": 12,
+      "rva": "0x170198"
+    },
+    {
+      "bytes": 12,
+      "rva": "0x1701B8"
+    },
+    {
+      "bytes": 12,
+      "rva": "0x1701C8"
+    },
+    {
+      "bytes": 12,
+      "rva": "0x1701D8"
+    },
+    {
+      "bytes": 36,
+      "rva": "0x1701F8"
+    },
+    {
+      "bytes": 12,
+      "rva": "0x170228"
+    }
+  ],
+  "dispatch_handles_rva_in_order": [
+    "0x17D950",
+    "0x17D908",
+    "0x184900",
+    "0x1851EC",
+    "0x184298",
+    "0x175D90",
+    "0x175EE8"
+  ],
+  "constants": {
+    "origin_xyz_bits": [
+      "0x00000000",
+      "0x00000000",
+      "0x41200000"
+    ],
+    "y_offset_float32_bits": "0x40133333",
+    "positive_coefficient_double_bits": "0x3FC3333340000000",
+    "negative_coefficient_double_bits": "0xBFC3333340000000",
+    "scratch_fourth_dword_initial": "0xCCCCCCCC",
+    "displaced_parameter_bits": "0x00000007"
+  },
+  "comparison": "EXACT stored float32 bits, callback rawbits, EAX, state/order; normalized scratch pointer roles; x87 sticky exceptions0..5 and preserved control",
+  "raw_original_code_included": false,
+  "real_wave_replay": {
+    "scalar_rvas": [
+      "0x176370",
+      "0x184AF0",
+      "0x177F84",
+      "0x170354",
+      "0x1855F0",
+      "0x1855F4"
+    ],
+    "data_window": {
+      "note": "Includes overlapping current-index address; snapshot raw state, not a guessed container",
+      "rva": "0x17028C",
+      "bytes": 204
+    },
+    "cpu_only": true,
+    "approved_index_range": {
+      "signed": true,
+      "current_initial": 1,
+      "sentinel_approved": false,
+      "minimum": 0,
+      "previous_initial": 0,
+      "maximum": 50
+    },
+    "additional_finite_scalar_guard_required": false
+  }
+}

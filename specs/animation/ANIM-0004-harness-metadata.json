@@ -1,0 +1,23 @@
+{
+ "id":"ANIM-0004","authority":"ANIM-0004-strike-block-selection.md","status":"READY_FOR_IMPLEMENTATION_AND_VALIDATION","kind":"ANIM0002 native activation extension, eleven semantic cores unchanged",
+ "original":{"sha256":"77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6","base":"0x400000","image_size":"0x19F000","evidence_session":"736dce9b"},
+ "hook":{"thunk_rva":"0x1C26","body_rva":"0x6E40","span":5,"kind":"existing metadata-only selector hook unchanged"},
+ "abi":{"kind":"thiscall","ecx":"owner","stack":["requested name pointer"],"cleanup":4,"model_owner_offset":644,"authority":"ANIM-0002-name-selection.md"},
+ "native_owner_rva":"0x17ACD0",
+ "new_roles":[
+ {"state":3,"name":"LEGS_LEFTHEAD","call_rva":"0x3721C","return_rva":"0x37221","literal_rva":"0x163C54"},
+ {"state":4,"name":"LEGS_RIGHTHEAD","call_rva":"0x3723D","return_rva":"0x37242","literal_rva":"0x163C40"},
+ {"state":5,"name":"LEGS_LEFTTORS","call_rva":"0x3725E","return_rva":"0x37263","literal_rva":"0x163C30"},
+ {"state":6,"name":"LEGS_RIGHTTORS","call_rva":"0x3727F","return_rva":"0x37284","literal_rva":"0x163C1C"},
+ {"state":7,"name":"LEGS_LEFTBOK","call_rva":"0x372A0","return_rva":"0x372A5","literal_rva":"0x163C0C"},
+ {"state":8,"name":"LEGS_RIGHTBOK","call_rva":"0x372C1","return_rva":"0x372C6","literal_rva":"0x163BFC"},
+ {"state":11,"name":"LEGS_BLOCK","call_rva":"0x37324","return_rva":"0x37329","literal_rva":"0x163BD0"}],
+ "existing_roles":{"idle_return_rva":"0x371BE","run_return_rva":"0x371DF","runb_return_rva":"0x37200"},
+ "comparator_observer":{"callsite_rva":"0x6E94","return_rva":"0x6E99","target_rva":"0x989C0","span":5,"kind":"existing opt-in metadata-only E8 recorder seam"},
+ "asset_authority":"../render/RENDER-0006-approved-bhm-bounds.json lower-only unchanged lifetime witness",
+ "scene":{"head_vk":"0x5A Z","torso_vk":"0x58 X","hook_vk":"0x43 C","block_vk":"0x20 Space","method":"short realpress/release after registered gameplay; wait original completion between attacks; observe actual admitted roles"},
+ "comparison":"EXACT model112/EAX/callbacktrace/FP; composed progression/preparation active witnesses; per-role BLOCKED if uncaptured",
+ "capture":{"opt_in":true,"max_per_process":16,"per_role":2,"roles":"seven new roles plus idle, movement excluded from new budget","replay_batch_max":16,"reference_candidate":"explicit side identity, separate boundedlists allowed"},
+ "ordinary":"diagnostics off, no comparator capture patch, eleven existing supported cores active",
+ "excluded":"unusedupper15E1/6D40; fabricatedupperassets; gameplaydecision/damage/input implementation; otheractors; pain/death/win"
+}

@@ -1,0 +1,17 @@
+{
+  "id":"ANIM-0003",
+  "authority":"ANIM-0003-future-frame-preparation.md",
+  "status":"READY_FOR_IMPLEMENTATION",
+  "harness":{"mode":"frames","fixture_cli":"--frames-fixture","replay_cli":"--frames-replay"},
+  "original":{"sha256":"77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6","base":"0x400000","image_size":"0x19F000"},
+  "hook":{"thunk_rva":"0x1D66","body_rva":"0x5D40","span":5,"kind":"metadata-only synthesized direct jump","native_return_rva":"0x5F0D"},
+  "abi":{"kind":"stdcall","stack":["model pointer"],"ecx":"opaque entry value forwarded to advancement","callee_cleanup":4,"return":"full uint32 advancement EAX"},
+  "callbacks":[{"role":"animation_lookup","thunk_rva":"0x10B4","body_rva":"0x97A0","abi":"thiscall","ecx":"model+84","stack":["signed selector"],"cleanup":4},{"role":"frame_advancement","thunk_rva":"0x15AA","body_rva":"0x6810","abi":"stdcall","ecx":"saved parent entry ECX","stack":["model pointer"],"cleanup":4}],
+  "layout":{"model_span":112,"gate":40,"selector":44,"frame":48,"outputs":[52,60,64,68,72],"collection":84,"record_stride":272,"record_start":256,"record_divisor":260},
+  "integer_policy":"32bit wrap add; signed truncation remainder; zero remainder replaced by cached start; zero divisor/INT_MIN divide minus1 excluded before effects",
+  "prepared_boundary_observer":{"callsite_rva":"0x5E48","return_rva":"0x5E4D","target_thunk_rva":"0x15AA","reference_body_rva":"0x6810","span":5,"opcode":"E8","kind":"metadata-synthesized direct CALL install/restore","scope":"isolated frames fixtures or opt-in prepared-boundary capture; ordinary unchanged","abi":"stdcall stackM ret4; saved parent entryECX forwarded; fullEAX/FP effects","role":"original-parent/original-advancement reference only; candidate composition uses activeANIM0001 trusted continuation"},
+  "native_scope":"original caller5F0D; registered lower model; valid bounded selected record and prospective ANIM0001 state; fallback whole parent before effects if unsupported",
+  "continuation":"thread-local scoped verified ANIM0003 admission of exact model/currentthread/role immediately around advancement; ANIM0001 accepts matching admission plus unchanged own guards; semantic cores unchanged",
+  "comparison":{"model":"EXACT all112bytes","eax":"EXACT callback raw32","callbacks":"EXACT lookup then advancement, prepared slots snapshot and entryECX","fp":"EXACT callback inherited environment"},
+  "validation":"unit recorder fixtures plus originalparent/originaladvance versus candidateparent/existingcandidateadvance composed replay and natural samecall activation witnesses"
+}

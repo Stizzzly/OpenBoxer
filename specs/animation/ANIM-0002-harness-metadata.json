@@ -1,0 +1,16 @@
+{
+  "id":"ANIM-0002",
+  "authority":"ANIM-0002-name-selection.md",
+  "status":"READY_FOR_IMPLEMENTATION",
+  "harness":{"mode":"clip","fixture_cli":"--clip-fixture","replay_cli":"--clip-replay"},
+  "original":{"sha256":"77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6","base":"0x400000","image_size":"0x19F000"},
+  "hook":{"thunk_rva":"0x1C26","body_rva":"0x6E40","span":5,"kind":"metadata-only synthesized direct jump"},
+  "abi":{"kind":"thiscall","ecx":"owner","stack":["requested name pointer"],"callee_cleanup":4,"return":"success owner; no-match final index; initial nonpositive bound0xCCCCCCCC"},
+  "callbacks":[{"role":"animation_lookup","thunk_rva":"0x10B4","body_rva":"0x97A0","abi":"thiscall","ecx":"owner+728=model+84","stack":["signed index"],"cleanup":4},{"role":"compare_names","body_rva":"0x989C0","abi":"cdecl","stack":["record name pointer","requested name pointer"],"caller_cleanup":8}],
+  "layout":{"model_owner_offset":644,"model_span":112,"bound":40,"selector":44,"frame":48,"factor":76,"anchor":80,"collection":84,"record_stride":272,"record_start":256},
+  "factor_bits":"0x3DCCCCCD",
+  "comparator_observer":{"callsite_rva":"0x6E94","return_rva":"0x6E99","target_rva":"0x989C0","span":5,"opcode":"E8","kind":"metadata-synthesized direct call install/restore","scope":"isolated fixture or opt-in native capture only; ordinary launch unpatched","forward":"cdecl exact2pointers to preservedbody and fullEAX/FP effects"},
+  "clock_rva":"0x17D904",
+  "native":{"owner_rva":"0x17ACD0","return_rvas":["0x371BE","0x371DF","0x37200"],"max_records":256,"max_string_bytes":256,"registration":"existing live rendered lower model and unchanged witnesses, actual natural guard hit required"},
+  "comparison":{"state":"EXACT all112bytes","return":"EXACT uint32 with pointer role normalization in cross-address captures","callbacks":"EXACT ordered lookup/compare/optional lookup","fp":"EXACT; body has integer effects only"}
+}

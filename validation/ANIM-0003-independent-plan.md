@@ -1,0 +1,13 @@
+# ANIM-0003 independent comparison plan
+
+Authority: approved `specs/animation/ANIM-0003-future-frame-preparation.md` and harness metadata. No original implementation/process/UI access by validator. Result BLOCKED until independent candidate and original typed observations are available.
+
+Unit fixtures compare full112 bytes EXACT, signed selector lookup input, unconditional lookup despite gate zero, live gate/frame and cached record start/divisor after lookup, exact five prepared slots at advancement entry, saved opaque ECX, callback full EAX and final model/global state. Compare initial/final CW/SW/TOP/tag/MXCSR EXACT with callback-induced changes preserved. Verify stdcall cleanup4 and nonvolatiles with typed witnesses.
+
+Oracle implements explicit wrapped32 addition and quotient truncation toward zero. Defaults S0/D1 only for zero live gate; any negative nonzero gate reads record. Record poison on zero-gate must not be dereferenced. Every newly computed zero remainder becomes cached S; M56 remains untouched. Exclude D0 and INT_MIN/-1 trapping combinations from candidate cases before effects. Exercise every wrap position, negative inputs/divisors, D1, INT_MAX wrapping, live callback mutations and arbitrary advancement returns/mutations/FP changes.
+
+Composed fixture comparison requires original parent+original advancement and candidate parent+existing ANIM0001 candidate under identical CW027F/clean FP inputs. Validate both stages independently against their approved oracles, full outputs and nested callback order. Preserve nine frozen semantic core hashes. Inspect continuation admission as ABI glue: verified lower model, original parent caller, exact model/current thread/depth/role scope; ANIM0001 own guard stays intact; no original-PC spoofing, broad caller acceptance or reentrant/stale admission.
+
+Natural root capture must supply premodel/selectedrecord/time/FP/entryECX, prepared-slot snapshot at advance entry, final model/EAX/time/FP and independent counters/role witnesses that ANIM0003 and ANIM0001 candidates execute in the same supported call. Include start, end-wrap and later repeat checkpoints where feasible. Asynchronous observations compare each against its own input. Missing activation witness cannot be inferred from final model and yields BLOCKED for composed native scope. Root provenance covers short ordinary diagnostics-off test-copy smoke, guarded delivery identity and installed-original preservation.
+
+Final report separates unit, composed, natural and source-audit evidence. No upper-model, exceptional fault or long-running gameplay equivalence claim.

@@ -1,0 +1,55 @@
+# RENDER-0005 — Independent map-draw validation
+
+Date: 2026-10-04. Agent3. Only approved behavioral specifications, candidate source and typed behavioral observations were consulted. No original executable, assets, code, IDA, process or UI was accessed by this validator; root owns original execution and UI activity.
+
+## Current result
+
+**Bounded PASS:** 31 synthetic original/candidate draw pairs, three guard-only rejection cases, two captured-native-source original/candidate replay pairs, and complete original/replacement native map2 emissions on calls1/2/3/120. Confidence: CONFIRMED for these recorded checks. This does not establish whole-renderer or pixel equivalence. First recorded natural smoke is map2; map1 natural coverage is not claimed.
+
+## Provenance
+
+Approved contract: `specs/render/RENDER-0005-map-draw.md`, thunk RVA0x1B54 and intact body RVA0x26B00. Root's `draw-fixture-prepatch-observation.json` records PID18552, base0x400000, live target0x426B00, original SHA256 `77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6`, and timestamp2026-10-04T15:14:05.2746109Z. Root reports launcher/worker exit0 and subsequent disposable-process termination.
+
+Independent hashing confirms frozen DLL `replacement/ms3d/frozen-render0005/ms3d_replacement.dll` SHA256 `A99D34220583D60B32677C9B7916210C49A7C583A28C2F7E3DE8727F834F9A87`. All18 entries of the freeze manifest match their current files. The separate39-entry preserved-source/ABI/test manifest also independently matches every file. Root's six-core pre-change manifest independently matches loader/world/texture/upload/lighting/selection source hashes exactly. These are distinct preservation checks, not39 freeze entries or renewed prior-unit equivalence claims.
+
+## Independent observed checks
+
+`RENDER-0005-check-observations.py` independently parses all34 records and complete typed before/after source snapshots and full witnesses. Its original-process output is `RENDER-0005-independent-observations.json`, including artifact hashes and six-core preservation evidence. All31 paired before/after snapshots and witnesses are byte-identical between original and candidate, with no excluded bytes. Witnesses include full model sentinel bytes, all active/inactive source banks, normalized table/list pointer roles, five handles and13 normalized callback-slot identities.
+
+All899 events per side match exactly: API, dispatch identity, immediate raw source payload, normalized source pointer, raw scalar argument words and returned32-bit callback residue. No temporary/unregistered source pointers appear. Candidate installed-route counter increases exactly once per pair; intact-original counter remains unchanged. The three unsafe negative-material/out-of-range/nonfinite cases reject preflight without any callback, replacement-counter advance or source/global witness mutation; no unsafe original dereference is attempted.
+
+Actual before/after ESP values agree in every paired invocation. Nonvolatile EBP/EBX/ESI/EDI agree with recorded sentinels. CW027F, x87 stack depth and all captured original/candidate SW/MXCSR values agree exactly. Observed final SW values are0000,0100 and4000; sticky exception bits are zero in these finite fixtures. Full-status agreement is recorded evidence for these cases, not a universal guarantee. Query fullEAX/AL and final restore callback EAX are independently checked against final function EAX. EAX0x100 restores disabled; noncanonical AL0x80 restores enabled.
+
+`RENDER-0005-oracle.py` independently derives the complete immutable callback sequence from the approved typed source layout. All16 immutable cases match every material/shader/texture/Begin/normal/UV/vertex/End/restore call and raw payload/pointer role; their complete source and global witnesses remain unchanged. Literal witnesses cover threshold below/equal/nextfloat-above, uint32 textureFFFFFFFF, forced shader alpha1 versus material alpha, empty/negative membership Begin/End, zero/negative mesh counts, shared materials and duplicate/reordered membership.
+
+Fifteen controlled mutation cases also satisfy independent literal assertions for retained material index with relocated material table, later shader values/handles/slots, scalar/bind/enable threshold changes, Begin-time membership/table/count changes, UV read after Normal with vertex index cached before Normal, vertex base read after Texcoord, triangle pointer retained within a membership and refreshed for the next, live mesh-count shrink, entry-AL restoration and all13 alternate callback slots. These checks do not demand source similarity.
+
+## Read-only implementation audit
+
+The candidate semantic core separates material configuration, texture selection, triangle emission and membership traversal from explicit model-layout/dispatch/ABI adapters. Names correspond to approved model/GL semantics; opaque words and shader handles remain unknown. Fresh material bases and callback slots, retained material/triangle/current-vertex indices, original source-pointer forwarding, raw float words, strict x87 threshold comparison and final AL-based restoration/EAX forwarding agree with the contract.
+
+Validator-raised issues were corrected before freeze: native query/restore results are observable; actual pre snapshots are written before invocation; slots and membership identities are in witnesses; actual stack values and installed-route counters are serialized; malformed overlapping ranges reject preflight; root privately validates baseline route rather than Agent2 reading original code. Runtime forwarding records only tagged map calls, permits late initialized shader slots, and keeps other model identities on intact original fallback.
+
+## Completed native and captured-source proof
+
+Root-owned original-tag PID18220 and replacement-tag PID7648 archives `draw-native-original` and `draw-native-replacement` supply calls1/2/3/120 on WORLDselector2. Each contains28 meshes/materials,2989 triangles and2303 vertices. Independent `RENDER-0005-check-native.py` verifies each complete27295-event stream against the literal source-derived oracle, independently recomputes digest48585047BEAB54D3 and all13 callback counts, and confirms byte-identical pre/post typed source snapshots. Each frame emits8967 normal/UV/vertex calls,28 Begin/End pairs and112 material-vector/shader-vector calls. These counts summarize full exact-stream comparisons, not count-only proof.
+
+Every replacement capture matches its corresponding original capture on ALL API/dispatch/raw-argument/source-role/raw-payload fields. Query fullEAX/AL is1. Final restoration is glEnable(TEXTURE_2D), and its actual returned EAX1 equals the function's recorded EAX1. Intermediate semantically ignored driver callback residues differ across processes; they are not included in semantic emission equivalence. Exact final-return forwarding remains independently checked. Native CW027F and x87 depth agree before/after; sticky21 and MXCSR1FA0 remain unchanged. FullSW4021->0021 is observed, consistent with changed comparison condition codes rather than a cleared sticky exception.
+
+Artifacts `RENDER-0005-original-native-independent.json` and `RENDER-0005-replacement-native-independent.json` retain exact-source/trace hashes, per-capture checks and peer full-stream comparison results. Bounded `draw-routes.jsonl` entries explicitly retain original-fallback routes for non-map identities through call120. Read-only runtime audit establishes map-global/current-context/preflight gate before tagged body selection; root supplies guarded process/hash/route provenance.
+
+Root's captured-source GPU-isolated replay PIDs13960 and14140 use original native call1 and replacement native call120 respectively. Both were terminated after worker exit0. Independent `RENDER-0005-check-replay.py` verifies all four replay pre/post snapshots per pair byte-for-byte against the corresponding captured native input; the CPU recorders do not modify model/source state. Each intact-original/installed-candidate pair agrees on all27295 full events including recorder results, exact EAX/FP state, raw balanced ESP, nonvolatile sentinels and installed-route delta. Both original and candidate semantic event streams exactly reproduce their corresponding native stream. Two new replay pairs bring total original/candidate comparisons to33; the three guard-only checks are additional, not differential pairs. Replay proof/hashes are in the two `RENDER-0005-*-replay-independent.json` artifacts.
+
+Archived natural logs retain WORLDselector2 replacement, IO-0003 map2/light loading, reload three calls/30 uploads, uploader30 textures, lighting A/B three-record preparation and selection execution through120. These establish continued actual routes, not renewed prior-unit equivalence. Both root-captured screenshots were independently opened: Boxer versus Ment, textured floor/walls/car/objects and visibly lit characters. They support visible integration, not pixel parity. Root reports controlled termination of its own processes; graceful teardown is not claimed.
+
+## Numerical and compatibility limits
+
+Replay initializes CW027F/SW0/MXCSR1F80. Its exact original/candidate CPU emission parity does not imply raw equality to the different native initial FP state. Native before/after flags were independently assessed as above. Opaque driver callback EAX residues are not portable success values: native final EAX equals the actual final native callback result, while CPU recorders use deliberate markers.
+
+No pixel parity, timing/frame-rate equivalence, teardown, arbitrary malformed aliases/indices, nonstandard or unmasked FP controls, special-value/denormal comparison policy, other model replacement or complete rendering/world reconstruction is established. Opaque transforms/shader/GL dependencies and unsupported input fallback remain preserved boundaries.
+
+## Final formatting verification
+
+Agent2 formatted only whitespace in draw.cpp/draw_model.hpp/draw_dispatch.hpp/draw.hpp and reported identical non-whitespace content. Independent replacement-only PE parsing and comparison (`RENDER-0005-check-formatting.py`, evidence `RENDER-0005-formatting-independent.json`) confirms the rebuilt DLL SHA256 `ADB6BC4CE48E814BC3E46448528B8E551BC4F20CF65773440C9E910B7D7D2187` has the same3237371-byte length as validated frozen A99D and differs in exactly six bytes: two bytes each within COFF TimeDateStamp at0x88, optional-header CheckSum at0xD8 and export-directory TimeDateStamp at0x167004. The checker derives these locations from the replacement PE headers/section mapping; every other byte, including all compiled code/data, is identical.
+
+The validated A99D frozen binary remains unchanged and retained. All18 final freeze-manifest entries, all39 preserved-source/ABI/test entries and root's six prior-core hashes independently match. Eight offline targets passed again after formatting per Agent2/root. The formatting verification changes no behavioral verdict and requires no repeated original or native run.

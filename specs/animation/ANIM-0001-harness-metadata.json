@@ -1,0 +1,22 @@
+{
+  "id": "ANIM-0001",
+  "authority": "ANIM-0001-frame-time-advance.md",
+  "status": "IMPLEMENTED_PENDING_ORIGINAL_PROCESS_VALIDATION",
+  "original": {"sha256":"77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6","base":"0x400000","image_size":"0x19F000"},
+  "hook": {"thunk_rva":"0x15AA","body_rva":"0x6810","span":5,"kind":"metadata-only synthesized direct jump","native_return_rva":"0x5E4D"},
+  "abi": {"kind":"stdcall","stack":["model pointer"],"ecx":"not a semantic input","callee_cleanup":4,"return":"full uint32 EAX factor bits or zero count gate"},
+  "callbacks": [
+    {"role":"animation_count","thunk_rva":"0x14D8","body_rva":"0x9730","abi":"thiscall","ecx":"model+84","cleanup":0},
+    {"role":"animation_lookup","thunk_rva":"0x10B4","body_rva":"0x97A0","abi":"thiscall","ecx":"model+84","stack":["signed int32 index"],"cleanup":4}
+  ],
+  "clock_rva":"0x17D904",
+  "constants":[{"rva":"0x162114","bits":"0x447A0000"},{"rva":"0x162024","bits":"0x3F800000"},{"rva":"0x162040","bits":"0x00000000"}],
+  "layout":{"model_span":112,"record_stride":272,"record_rate":268,"selector":44,"frame":48,"factor":76,"anchor":80,"collection":84,"begin":88,"end":92,"capacity":96,"source":"56+4*steps"},
+  "native_scope":"caller5E4D; model registered and previously bound by character rendering; model==boundOwner+644; unchanged source witnesses; finite CW027F and empty x87 tag; valid collection/rate/constants; predictedsteps<=4; frame0..748",
+  "capture":{"environment":"OPENBOXER_CAPTURE=animation","max_per_process":4,"selection":"first accepted subinterval, first accepted advance, accepted120 and240","format":"ANM1 version1: 10 uint32 header, normalized112-byte model, selected272-byte data record, normalized112-byte postmodel","header":["magic","version","clock_bits","collection_count","index","cw","sw","eax","after_sw","after_clock_bits"],"trace":"animation-native.jsonl","pointer_change_witness":"pointer_words_unchanged before normalization"},
+  "fixtures":{"count":40,"worker":"animation_fixture_worker","launcher":"--animation-fixture","report":"animation-fixtures.jsonl","replay_worker":"animation_replay_worker","replay_launcher":"--animation-replay","replay_list_env":"OPENBOXER_ANIMATION_REPLAY_LIST","replay_list_format":"semicolon-separated absolute typed capture paths, at most16","replay_environment":"Both CPU replay sides use identical clean fninit/CW027F/MXCSR1F80. Captured source CW/SW are retained separately; no claim to recreate captured live FP stack/status."},
+  "comparison":{"model":"EXACT all112bytes","eax":"EXACT full32bits","clock":"EXACT unchanged or approved recorder effects","callbacks":"EXACT ordered roles/index/returns","fp_status":"EXACT fullSW/CW/TOP/abridged-tag/MXCSR for same clean initial CPU environments; retain diagnostic witnesses without output tolerance relaxation"},
+  "x87_condition_contract":{"confidence":"CONFIRMED","evidence_session":"19d211af","condition_mask":"0x4700","top_mask":"0x3800","cw":"unchanged, supported0x027F","top":"entry equals return with usable temporary slot","count_zero":"SW unchanged by body/original count accessor","noadvance":"interval left versus elapsed right; final conditions0x0000","advance":"stored corrected factor left versus +0 right; positive0x0000, signedzero0x4000, negative0x0100 retained after integer +0 clamp","sticky":"not cleared; exact ordered-arithmetic flags compared separately","comparison_policy":"EXACT full observed SW for identical supported initial environments; diagnose C bits/TOP/sticky separately"},
+  "ordinary_launch":"All supported replacements active; diagnostics and captures defaultoff; no fixture isolation or trace IO. Parent preparation remains original."
+}
+

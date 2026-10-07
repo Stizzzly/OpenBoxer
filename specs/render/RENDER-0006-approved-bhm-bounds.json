@@ -1,0 +1,130 @@
+[
+  {
+    "path": "base\\fighters\\1_lower.bhm",
+    "frames": 749,
+    "surfaces": [
+      {
+        "frames": 749,
+        "triangles": 2832,
+        "offset": 42052,
+        "vertices": 1999
+      }
+    ],
+    "bytes": 12070212,
+    "end": 12070212,
+    "sha256": "CCE184703AE8145DAA8ADAAD06D421E1D6440E682BFB7A08DBFA952B9D09FDEC",
+    "tag_count": 0
+  },
+  {
+    "path": "base\\fighters\\2_lower.bhm",
+    "frames": 749,
+    "surfaces": [
+      {
+        "frames": 749,
+        "triangles": 2794,
+        "offset": 42052,
+        "vertices": 1944
+      }
+    ],
+    "bytes": 11739756,
+    "end": 11739756,
+    "sha256": "2D53125B347177FC466DF987BDC003480A1FE4AFB6CB24794DC60FED0320CEF1",
+    "tag_count": 0
+  },
+  {
+    "path": "base\\fighters\\3_lower.bhm",
+    "frames": 749,
+    "surfaces": [
+      {
+        "frames": 749,
+        "triangles": 2714,
+        "offset": 42052,
+        "vertices": 2036
+      }
+    ],
+    "bytes": 12290796,
+    "end": 12290796,
+    "sha256": "E525DD0403BBF0A88D93C3E2F06DC2A62C6BE5EF2F2846EF9E661CD40BAAD36D",
+    "tag_count": 0
+  },
+  {
+    "path": "base\\fighters\\4_lower.bhm",
+    "frames": 749,
+    "surfaces": [
+      {
+        "frames": 749,
+        "triangles": 2827,
+        "offset": 42052,
+        "vertices": 2003
+      }
+    ],
+    "bytes": 12094152,
+    "end": 12094152,
+    "sha256": "153CB5F56EA9BE28EEF991724E0A5FD6FEDEC4CA20B1EC37A6169BEC6C41F667",
+    "tag_count": 0
+  },
+  {
+    "path": "base\\fighters\\5_lower.bhm",
+    "frames": 749,
+    "surfaces": [
+      {
+        "frames": 749,
+        "triangles": 2878,
+        "offset": 42052,
+        "vertices": 2462
+      }
+    ],
+    "bytes": 14848764,
+    "end": 14848764,
+    "sha256": "0BCE8E551F0FE21511DA2F41EC5C9A95387CE6FDCEFB87519A15BFFC5316BC49",
+    "tag_count": 0
+  },
+  {
+    "path": "base\\fighters\\6_lower.bhm",
+    "frames": 749,
+    "surfaces": [
+      {
+        "frames": 749,
+        "triangles": 2962,
+        "offset": 42052,
+        "vertices": 2071
+      }
+    ],
+    "bytes": 12503772,
+    "end": 12503772,
+    "sha256": "28FF235E66D6366F070BE276E3ED0E4AB39CE0AD37340FC404B74249C5BB4576",
+    "tag_count": 0
+  },
+  {
+    "path": "base\\fighters\\7_lower.bhm",
+    "frames": 749,
+    "surfaces": [
+      {
+        "frames": 749,
+        "triangles": 2836,
+        "offset": 42052,
+        "vertices": 2098
+      }
+    ],
+    "bytes": 12664260,
+    "end": 12664260,
+    "sha256": "4B42860245BC53CD9A1ABA84404F5DC15E881BAF834EA3D1D873ACC2C5BDFE4E",
+    "tag_count": 0
+  },
+  {
+    "path": "base\\fighters\\8_lower.bhm",
+    "frames": 749,
+    "surfaces": [
+      {
+        "frames": 749,
+        "triangles": 2786,
+        "offset": 42052,
+        "vertices": 2178
+      }
+    ],
+    "bytes": 13143660,
+    "end": 13143660,
+    "sha256": "04C4935B574491F91F5B24DDFE115287790BADA359BD2D3DE3E8CFD977851B38",
+    "tag_count": 0
+  }
+]

@@ -1,0 +1,368 @@
+{
+  "spec_id": "GAME-0001",
+  "status": "APPROVED_SCOPED_OBSERVER_METADATA",
+  "original_sha256": "77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6",
+  "policy": "Root preverify E8 and original target on each complete5byte CALL before synthesized observer. Fixtures/opt-in disposable capture only; forward preserved original target; restore CALL by target metadata. Original body implementation remains unchanged. Audio IAT call at0x20593 is excluded from5byte patch metadata (different instruction); use typed fixture bridge or separately approved imported API observer.",
+  "calls": [
+    {
+      "call_rva": "0x1efc0",
+      "target_rva": "0x5ac10",
+      "return_rva": "0x1efc5",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1eff5",
+      "target_rva": "0x5ac10",
+      "return_rva": "0x1effa",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f024",
+      "target_rva": "0x19c9",
+      "return_rva": "0x1f029",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f032",
+      "target_rva": "0x19c9",
+      "return_rva": "0x1f037",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f048",
+      "target_rva": "0x19c9",
+      "return_rva": "0x1f04d",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f056",
+      "target_rva": "0x19c9",
+      "return_rva": "0x1f05b",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f072",
+      "target_rva": "0x19c9",
+      "return_rva": "0x1f077",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f080",
+      "target_rva": "0x19c9",
+      "return_rva": "0x1f085",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f096",
+      "target_rva": "0x19c9",
+      "return_rva": "0x1f09b",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f0a4",
+      "target_rva": "0x19c9",
+      "return_rva": "0x1f0a9",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f0bf",
+      "target_rva": "0x95b74",
+      "return_rva": "0x1f0c4",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f2c4",
+      "target_rva": "0x1839",
+      "return_rva": "0x1f2c9",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f4a3",
+      "target_rva": "0x1839",
+      "return_rva": "0x1f4a8",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f66f",
+      "target_rva": "0x1839",
+      "return_rva": "0x1f674",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f681",
+      "target_rva": "0x5b780",
+      "return_rva": "0x1f686",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f7cc",
+      "target_rva": "0x1839",
+      "return_rva": "0x1f7d1",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f7de",
+      "target_rva": "0x5b780",
+      "return_rva": "0x1f7e3",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f92a",
+      "target_rva": "0x1839",
+      "return_rva": "0x1f92f",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1f93c",
+      "target_rva": "0x5b780",
+      "return_rva": "0x1f941",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x1ff32",
+      "target_rva": "0x1839",
+      "return_rva": "0x1ff37",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20381",
+      "target_rva": "0x1d4d",
+      "return_rva": "0x20386",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20392",
+      "target_rva": "0x1839",
+      "return_rva": "0x20397",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x203c5",
+      "target_rva": "0x19c9",
+      "return_rva": "0x203ca",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x203d6",
+      "target_rva": "0x1811",
+      "return_rva": "0x203db",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x203eb",
+      "target_rva": "0x5ac10",
+      "return_rva": "0x203f0",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20418",
+      "target_rva": "0x1839",
+      "return_rva": "0x2041d",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x2042d",
+      "target_rva": "0x5b2e0",
+      "return_rva": "0x20432",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20442",
+      "target_rva": "0x5b210",
+      "return_rva": "0x20447",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20484",
+      "target_rva": "0x1014",
+      "return_rva": "0x20489",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x2048f",
+      "target_rva": "0x11e0",
+      "return_rva": "0x20494",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x204a8",
+      "target_rva": "0x19c9",
+      "return_rva": "0x204ad",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x204e4",
+      "target_rva": "0x1cd0",
+      "return_rva": "0x204e9",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x2051d",
+      "target_rva": "0x1f64",
+      "return_rva": "0x20522",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20551",
+      "target_rva": "0x5b690",
+      "return_rva": "0x20556",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x2055c",
+      "target_rva": "0x1b36",
+      "return_rva": "0x20561",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x205cf",
+      "target_rva": "0x179e",
+      "return_rva": "0x205d4",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20600",
+      "target_rva": "0x1eb0",
+      "return_rva": "0x20605",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x2060d",
+      "target_rva": "0x19c9",
+      "return_rva": "0x20612",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x2061c",
+      "target_rva": "0x19c9",
+      "return_rva": "0x20621",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20633",
+      "target_rva": "0x19c9",
+      "return_rva": "0x20638",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20642",
+      "target_rva": "0x19c9",
+      "return_rva": "0x20647",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20657",
+      "target_rva": "0x95b74",
+      "return_rva": "0x2065c",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20674",
+      "target_rva": "0x19c9",
+      "return_rva": "0x20679",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x20692",
+      "target_rva": "0x1f5f",
+      "return_rva": "0x20697",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    },
+    {
+      "call_rva": "0x206a4",
+      "target_rva": "0x5b690",
+      "return_rva": "0x206a9",
+      "instruction_length": 5,
+      "kind": "near_call",
+      "confidence": "CONFIRMED"
+    }
+  ]
+}

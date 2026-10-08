@@ -2,6 +2,8 @@ import sys,json,hashlib
 from pathlib import Path
 v=Path(r'C:\Users\ADMIN\CLionProjects\OpenBoxer\validation')
 data=Path(r'C:\Users\ADMIN\Boxer-lab\ms3d\damage-fixture-observations-stage4')
+if len(sys.argv)>1:data=Path(sys.argv[1])
+output=Path(sys.argv[2]) if len(sys.argv)>2 else v/'GAME-0002-independent-stage4-fallback.json'
 # Reuse the validation-owned generic typed comparator, without its replay loop.
 sys.argv=[__file__,str(data),str(v/'unused.json')]
 source=(v/'GAME-0002-independent-compare-clean-replay.py').read_text()
@@ -18,5 +20,5 @@ for test in range(22):
 for witness in ['guard_dispatch candidate=1 replacement=0 fallback=1 route=1 abi=1 equivalent_state_sites_eax=1','cleanup observer_restored=1 failures=0']:
     ns['eq'](witness in report,True,'report '+witness)
 result={'status':'FAIL' if ns['errors'] else 'PASS_GUARDS_FALLBACK_ARCHITECTURAL_STATE_PENDING_PROVENANCE','checks':ns['checks'],'errors':ns['errors'],'paths':[{'path':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths],'equivalence':'BLOCKED_RAW_PROVENANCE_AND_REQUIRED_NATURAL_COMPOSED_EVIDENCE'}
-(v/'GAME-0002-independent-stage4-fallback.json').write_text(json.dumps(result,indent=2))
+output.write_text(json.dumps(result,indent=2))
 print(json.dumps({'status':result['status'],'checks':result['checks'],'errors':result['errors'][:10]}))

@@ -8,7 +8,7 @@ namespace {uintptr_t module=0;bool replacement=false;unsigned *replacementCounte
 Result BinaryState::call(const Call &call){
     const DamageSite *site=nullptr;for(auto&s:damageSites)if(s.call==call.site){site=&s;break;}
     if(!site || site->id!=unsigned(call.id) || site->count!=call.count)return {};
-    uint32_t target=site->target?uint32_t(base_+site->target):audioTarget();
+    uint32_t target=site->target?uint32_t(base_+site->target):audioTarget(base_);
     target=callbackTarget(call.site,target);Result result;damage_bridge(target,address(call.owner),call.args.data(),call.count,call.callerCleanup,&result,call.scalar,liveXmm.data());return result;
 }
 extern "C" uint32_t damage_dispatch(void *actor,uintptr_t caller,int32_t mode){

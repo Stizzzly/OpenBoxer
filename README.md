@@ -1,6 +1,6 @@
 # OpenBoxer
 
-> **Work in progress (2026-10-08):** GAME-0002 damage/block/reaction source is saved, but final differential and native validation are incomplete. Damage stays original by default. See [checkpoint](validation/GAME-0002-checkpoint.md).
+> **Validated bounded scope (2026-10-08):** GAME-0002 ordinary-Z damage, block and reaction passed final comparison and diagnostics-off delivery checks. Generic Damage remains original by default. See [report](validation/GAME-0002.md).
 
 An experimental behavioral reimplementation of **Месть боксера. Московский криминалитет**, developed by [Stizzzly](https://github.com/Stizzzly) with **AI-assisted co-development by OpenAI Codex**.
 
@@ -11,7 +11,7 @@ This is an incremental replacement DLL and guarded launcher for the original 32-
 - MS3D loading; map loading and drawing; texture loading/upload; map lighting.
 - Character pose/vertex processing; animation selection, frame progression and future-frame preparation.
 - Verified activation for attack/block animations.
-- Fresh Z/X/C strike registration within a bounded whole-player-update path. Strict distance intervals are `(1,4)`, `(1,5)`, `(1,6)`; misses still start the attack animation. Delayed blocking/damage remain original.
+- Fresh Z/X/C strike registration within a bounded whole-player-update path. Strict distance intervals are `(1,4)`, `(1,5)`, `(1,6)`; misses still start the attack animation. Ordinary-Z delayed blocking/damage now have a bounded validated opt-in replacement.
 
 GAME-0001 validation: 108 paired original/replacement scenarios, exact state/callback/FP comparisons, register/stack checks, admission rejection tests, real hit/miss observations and source-correlated replay. Fourteen CTest checks pass. These are bounded results, not proof that the entire game has been reconstructed. See [final independent report](validation/GAME-0001-independent-final.md).
 

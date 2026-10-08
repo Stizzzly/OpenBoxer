@@ -77,7 +77,7 @@ extern "C" uint32_t damage_script_dispatch(unsigned id,void *owner,uint32_t *arg
 }
 void setScript(ScriptCallback value){scripted=value;}
 void setReplacementEnabled(bool value){replacementEnabled=value;}
-uint32_t audioTarget(){return audio?audio:word(pointer(uint32_t(module+0x18cc00)));}
+uint32_t audioTarget(uintptr_t gameBase){return resolveAudioTarget(audio,gameBase);}
 uint32_t callbackTarget(uint32_t site,uint32_t fallback){semanticSite=-1;if(!observersInstalled)return fallback;for(unsigned i=0;i<sizeof(damageSites)/sizeof(*damageSites);++i)if(damageSites[i].call==site){semanticSite=int(i);return uint32_t(uintptr_t(damageWrappers[i]));}return fallback;}
 uint32_t capturedCaller(uint32_t caller){return !stack.empty() && stack.back().whole?stack.back().returned:caller;}
 void candidateWitness(bool candidate,const char*){if(active && std::strncmp(active->label,"guard-",6)!=0){active->candidate=candidate;active->label=candidate?"candidate":"original";}}

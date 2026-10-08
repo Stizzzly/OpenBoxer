@@ -11,7 +11,8 @@ bool installObserver(uintptr_t,bool force);
 void beginManualCapture(uintptr_t,int32_t,const char*,bool);
 void endManualCapture(uint32_t,const Witness* = nullptr);
 uint32_t callbackTarget(uint32_t site,uint32_t fallback);
-uint32_t audioTarget();
+uint32_t audioTarget(uintptr_t gameBase);
+inline uint32_t resolveAudioTarget(uint32_t capturedAudio,uintptr_t gameBase){return capturedAudio?capturedAudio:word(pointer(uint32_t(gameBase+0x18cc00)));}
 uint32_t capturedCaller(uint32_t caller);
 void candidateWitness(bool,const char*);
 void setReplacementEnabled(bool);

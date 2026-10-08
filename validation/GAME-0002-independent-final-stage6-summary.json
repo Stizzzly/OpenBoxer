@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "scope": "Approved bounded GAME-0002 domain plus guarded delivered diagnostics-off runtime; inventories resolved by corresponding mapping reports",
+  "dllHash": "B10C2E1D5CF4E422D8A83D2F7470D0E4463200CE4D8BDD09CD7BE4AA1B32052F",
+  "policyHashes": {
+    "specs\\gameplay\\GAME-0002-typed-fp-locals.md": "5bf5c5ea9e862625851becef3a3affff79f383f3a8ef93d30864dc8bfb4ced6f",
+    "specs\\gameplay\\GAME-0002-observer-metadata.json": "c258a52512197c108585e2db2dfc148374a5725f62af44ef25e46cd5f88b74fd",
+    "specs\\gameplay\\GAME-0002-stage6-legacy-reset-ruling.json": "fa2a914807004289a38035026cadfc4ce6e730921262d620f1b0f5251e67a3ca"
+  },
+  "reports": {
+    "stage6-comparison": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-stage6-comparison.json",
+      "hash": "ce0be867f732bd80edb3392653501ad5cf201f18544d2d205ec352dc2ef1e7cd",
+      "status": "PASS_SCRIPTED_PAIRS_PENDING_FP_POLICY",
+      "checks": 1068423,
+      "errors": 0
+    },
+    "stage6-fp-inventory": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-stage6-fp-inventory.json",
+      "hash": "9c7fd3043aee59d409f18106255fe263fbd40d7d26709d95d0f0998d338082df",
+      "status": "BLOCKED_PROVENANCE",
+      "checks": 1210606,
+      "errors": 0
+    },
+    "stage6-fallback": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-stage6-fallback.json",
+      "hash": "1aed454c001697b40201446bbf6f13c6423c93c16a7628c3173c8ba6b398653b",
+      "status": "PASS_GUARDS_FALLBACK_ARCHITECTURAL_STATE_PENDING_PROVENANCE",
+      "checks": 2808,
+      "errors": 0
+    },
+    "stage6-provenance-mapping": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-stage6-provenance-mapping.json",
+      "hash": "cdded97051dc2e63496c1a2d3bd34f31b6f2383c65d0a6649db534bdb90a62ef",
+      "status": "PASS_EXPLICIT_PROVENANCE_MAPPING",
+      "checks": 41888,
+      "errors": 0
+    },
+    "clean-replay-stage6-comparison": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-clean-replay-stage6-comparison.json",
+      "hash": "76f58cdc92731d123842293876171ee028687d45cf7f7bba1d2d0a80fc4ecc54",
+      "status": "PASS_STATE_EVENTS_ARCHITECTURAL_FP_PENDING_RAW_PROVENANCE",
+      "checks": 456164,
+      "errors": 0
+    },
+    "clean-replay-stage6-fp-inventory": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-clean-replay-stage6-fp-inventory.json",
+      "hash": "2b7408d6824382eec1d84d21392b4e7b49977d1886f2ab6f0a4f2b897a58fbc4",
+      "status": "BLOCKED_PROVENANCE",
+      "checks": 319388,
+      "errors": 0
+    },
+    "clean-replay-stage6-provenance-mapping": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-clean-replay-stage6-provenance-mapping.json",
+      "hash": "01b014ae1507413c7ec505d40cd166c481afafdbe495f8432187986449e8eea2",
+      "status": "PASS_EXPLICIT_PROVENANCE_MAPPING",
+      "checks": 2308,
+      "errors": 0
+    },
+    "clean-replay-stage6-module-provenance": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-clean-replay-stage6-module-provenance.json",
+      "hash": "595ac03a999ca37d004df5cdf8b9ec8d06e71ba14133d1694af016e2444d2cdf",
+      "status": "PASS_ROOT_TYPED_MODULE_REPORT_PROVENANCE_ONLY",
+      "checks": 1064,
+      "errors": 0
+    },
+    "delivery-v6-runtime": {
+      "report": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\validation\\GAME-0002-independent-delivery-v6-runtime.json",
+      "hash": "1d74bc29ea8fe6e7372315db848ec43cacf29cbe53835bda9474d5fa82c7d50c",
+      "status": "PASS_TYPED_OWN_RUNTIME_SYMBOL_ROUTE_FLAGS",
+      "checks": 70,
+      "errors": 0
+    }
+  },
+  "historicalFailuresPreserved": true,
+  "remainingRequiredGates": []
+}

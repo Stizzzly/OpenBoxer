@@ -17,3 +17,10 @@ Clean publication build: Windows/i686 Clang 20.1.8, Release, 157 build steps com
 The owner explicitly requested saving current unfinished work. GAME-0002 is published as work in progress, defaults to original damage, and is not a validated release. Only independently written source, approved behavioral specifications, written reports and validation tools were exported. Original/native memory records, packed replay data and all binaries remain excluded. See validation/GAME-0002-checkpoint.md.
 
 Checkpoint export build: Release/i686 Clang; CTest 16/16 PASS. Publication lint: zero failures, 102 warnings. Absolute lab paths and opaque callback address labels are intentionally retained as evidence references; they contain no original implementation. Build outputs remain ignored. This does not establish GAME-0002 behavioral equivalence.
+
+## Completed bounded GAME-0002 — 2026-10-08
+
+Final v6 source supersedes the unfinished checkpoint. The diagnostics-off audio resolver fault is fixed; historical failures remain. Published scope and validation are in validation/GAME-0002.md. Original assets, native captures, replay payloads and binaries remain excluded. Generic Damage still defaults to original.
+
+
+Final publication build: Release/i686 Clang, CTest 17/17 PASS. Publication lint: zero failures, 110 warnings (retained absolute lab paths and opaque callback labels; ignored build files also scanned). No original implementation or game assets are included.

@@ -1,0 +1,74 @@
+[
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\CMakeLists.txt",
+    "sha256": "0426FA9918A205C305B6915357226785F5799A4BA796C8DED38FF30C2FB29617"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\dll.cpp",
+    "sha256": "1E88212B132612D1659EFAFF10267E0B36E5038CDD613944F2EBEC3533D88A57"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw_abi.S",
+    "sha256": "E95AAA1F5EAE25F050475245E39E6A74D2F239EF35FCC8502F6C1A32D4DFBA2F"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw_dispatch.hpp",
+    "sha256": "A926D4FF22790F9E6A49920140A5D624780B21846500719F6BBAE1799C98A610"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw_fixtures.cpp",
+    "sha256": "46F477886F740EF8B7FCF433FE35C00358BD00F70100175C993DE0BE23582D94"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw_model.hpp",
+    "sha256": "8BEFEBBF5000F352D1BA379D37AA12B8A8A3A85EAD8F542D7BEA417BF6DB9FEC"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw_runtime.cpp",
+    "sha256": "E68CA1A2C0B6031CA8EBF3E57F609B2B5E7839D9869CCA6E313FC335751F9764"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw_tests.cpp",
+    "sha256": "872B87EFA95EEBE120328E086B2C9B48A101DE9FE5FE57EC03CE0E1630CE1D9A"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw_trace.cpp",
+    "sha256": "2E4F481AF3B6E27F473DF634BC04A3081A25E2A1950D0197F14BCF1B1D5686BF"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw_trace.hpp",
+    "sha256": "E13CF26B7972A708DA68A5765341BDD4BDEC7C7EBD2CB85322DFA73E8D3295D5"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw.cpp",
+    "sha256": "B9D280105067DB1B0022DED2F5921D131B72014D158EF56597AFDEB0A9D84830"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\draw.hpp",
+    "sha256": "5E6F6EED34DFA5E191511A96C1153403F3AB84E5495CC72A134D21DDF5BE70B8"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\launcher.cpp",
+    "sha256": "E2512F3CA2FBEE1979C62D02E1A16F48B48CC73940418067A820587721D52AA5"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\RENDER-0005-preserved-units.json",
+    "sha256": "0CBD649C9ABB1879C2FC582A93450EB832655D844D0761ECB89E2322DDCF22D4"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\RENDER-0005.md",
+    "sha256": "C1A87900A9A6FE0FFB9CB308590A9996D9CA5F92D0DBFE09983D30D9AB536AB3"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\frozen-render0005\\draw_loader_tests.exe",
+    "sha256": "402A4B9BA884099DA111DDED2CC821B473F71FAA67520863DCF7278334F9F9F7"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\frozen-render0005\\ms3d_launcher.exe",
+    "sha256": "F6DDC3AF501C300AAE0765811A58D3F968D6DE88C49A21A66EF168F54864EA16"
+  },
+  {
+    "path": "C:\\Users\\ADMIN\\CLionProjects\\OpenBoxer\\replacement\\ms3d\\frozen-render0005\\ms3d_replacement.dll",
+    "sha256": "A99D34220583D60B32677C9B7916210C49A7C583A28C2F7E3DE8727F834F9A87"
+  }
+]

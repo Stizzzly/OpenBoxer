@@ -1,0 +1,35 @@
+{
+  "unit": "RENDER-0005",
+  "change": "Whitespace-only formatting of four semantic core/interface sources; non-whitespace content verified identical before and after",
+  "formatted_sources": [
+    "draw.cpp",
+    "draw_model.hpp",
+    "draw_dispatch.hpp",
+    "draw.hpp"
+  ],
+  "validated_frozen_dll_sha256": "A99D34220583D60B32677C9B7916210C49A7C583A28C2F7E3DE8727F834F9A87",
+  "rebuilt_source_dll_sha256": "ADB6BC4CE48E814BC3E46448528B8E551BC4F20CF65773440C9E910B7D7D2187",
+  "equal_file_length": 3237371,
+  "differing_byte_count": 6,
+  "differences": [
+    {
+      "offset": "0x88",
+      "field": "COFF TimeDateStamp",
+      "different_bytes": 2
+    },
+    {
+      "offset": "0xD8",
+      "field": "PE optional header CheckSum",
+      "different_bytes": 2
+    },
+    {
+      "offset": "0x167004",
+      "field": "Export-directory TimeDateStamp",
+      "different_bytes": 2
+    }
+  ],
+  "all_other_bytes": "IDENTICAL",
+  "frozen_artifacts": "Validated A99D DLL and launcher retained byte-for-byte; rebuilt ADB6 is not deployed",
+  "offline_verification": "All eight CTest targets passed after formatting",
+  "manifest": "C:/Users/ADMIN/CLionProjects/OpenBoxer/replacement/ms3d/RENDER-0005-freeze.json"
+}

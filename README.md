@@ -1,5 +1,7 @@
 # OpenBoxer
 
+> **Work in progress (2026-10-08):** GAME-0002 damage/block/reaction source is saved, but final differential and native validation are incomplete. Damage stays original by default. See [checkpoint](validation/GAME-0002-checkpoint.md).
+
 An experimental behavioral reimplementation of **Месть боксера. Московский криминалитет**, developed by [Stizzzly](https://github.com/Stizzzly) with **AI-assisted co-development by OpenAI Codex**.
 
 This is an incremental replacement DLL and guarded launcher for the original 32-bit Windows game, **not a standalone rebuilt game**. Supported game-owned functions are replaced in a disposable test copy; unsupported states fall back to the untouched original function. See [credits](CREDITS.md) and the [Russian introduction](README.ru.md).

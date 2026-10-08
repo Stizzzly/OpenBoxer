@@ -11,3 +11,9 @@ Archived validation reports describe earlier local runs. Their omitted observati
 Credits are in CREDITS.md and both README files. Codex is credited as an AI assistant, not as a separate human or an invented GitHub identity. The initial commit uses an AI-Assisted-by trailer without claiming a fabricated co-author email.
 
 Clean publication build: Windows/i686 Clang 20.1.8, Release, 157 build steps completed; CTest 14/14 PASS. All twelve semantic source files are byte-identical to the local validated implementation before Git serialization. Staged file-extension audit excludes binaries, game models/images, raw native captures and analysis databases.
+
+## Source checkpoint — 2026-10-08
+
+The owner explicitly requested saving current unfinished work. GAME-0002 is published as work in progress, defaults to original damage, and is not a validated release. Only independently written source, approved behavioral specifications, written reports and validation tools were exported. Original/native memory records, packed replay data and all binaries remain excluded. See validation/GAME-0002-checkpoint.md.
+
+Checkpoint export build: Release/i686 Clang; CTest 16/16 PASS. Publication lint: zero failures, 102 warnings. Absolute lab paths and opaque callback address labels are intentionally retained as evidence references; they contain no original implementation. Build outputs remain ignored. This does not establish GAME-0002 behavioral equivalence.

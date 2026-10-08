@@ -1,0 +1,21 @@
+#pragma once
+#include "damage_native.hpp"
+#include <vector>
+namespace damage {
+struct Snapshot {std::vector<uint8_t> actor,player,playerBody,opponentBody,globals,world;uint32_t playerAddress=0,opponentAddress=0,worldAddress=0;std::vector<unsigned> spanSizes;};
+struct Event {unsigned site=0;uint32_t owner=0,eax=0,rngBefore=0,rngAfter=0;uint32_t args[4]{};unsigned returnedSize=0;std::vector<uint8_t> ownerBefore,ownerAfter,returned;std::array<uint32_t,4> combatBefore{},combatAfter{};std::array<std::vector<uint8_t>,4> beforeArgs,afterArgs;alignas(16) std::array<uint8_t,544> entryFp{},exitFp{};std::array<uint32_t,9> entryRegs{},exitRegs{};};
+struct Capture {Snapshot before,after;std::vector<Event> events;alignas(16) std::array<uint8_t,544> entryFp{},exitFp{};std::array<uint32_t,9> entryRegs{},exitRegs{};uint32_t mode=0,caller=0,eax=0;bool nested=false,candidate=false;const char *label="original";};
+using ScriptCallback=Result (*)(const Call&);
+void setScript(ScriptCallback);
+bool installObserver(uintptr_t,bool force);
+void beginManualCapture(uintptr_t,int32_t,const char*,bool);
+void endManualCapture(uint32_t,const Witness* = nullptr);
+uint32_t callbackTarget(uint32_t site,uint32_t fallback);
+uint32_t audioTarget();
+uint32_t capturedCaller(uint32_t caller);
+void candidateWitness(bool,const char*);
+void setReplacementEnabled(bool);
+const Capture *lastCapture();
+void restoreSnapshot(uintptr_t,const Snapshot&);
+Snapshot captureSnapshot(uintptr_t);
+}

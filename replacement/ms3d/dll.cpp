@@ -11,6 +11,8 @@
 #include "clip.hpp"
 #include "frames.hpp"
 #include "strike.hpp"
+#include "damage.hpp"
+#include "damage_native.hpp"
 #include "character_replay.hpp"
 #include "runtime_options.hpp"
 #include <windows.h>
@@ -100,7 +102,7 @@ static bool __attribute__((thiscall)) hook(void* object,const char* filename) {
 extern "C" __declspec(dllexport) DWORD WINAPI ms3d_bootstrap(void* requestedMode) {
     try {
         runtime_options::configure();
-        if(reinterpret_cast<uintptr_t>(requestedMode)>=3)for(unsigned unit=0;unit<unsigned(runtime_options::Unit::Count);++unit)if(runtime_options::original(static_cast<runtime_options::Unit>(unit)))return 26;
+        if(reinterpret_cast<uintptr_t>(requestedMode)>=3 && reinterpret_cast<uintptr_t>(requestedMode)!=22 && reinterpret_cast<uintptr_t>(requestedMode)!=23)for(unsigned unit=0;unit<unsigned(runtime_options::Unit::Count);++unit)if(runtime_options::original(static_cast<runtime_options::Unit>(unit)))return 26;
         if(installed) return 0;
         char modulePath[MAX_PATH]{}; GetModuleFileNameA(nullptr,modulePath,MAX_PATH);
         if(_stricmp(modulePath,"C:\\Users\\ADMIN\\Boxer-lab\\ms3d\\program.exe")!=0) return 10;
@@ -111,6 +113,7 @@ extern "C" __declspec(dllexport) DWORD WINAPI ms3d_bootstrap(void* requestedMode
         if(!GetModuleInformation(GetCurrentProcess(),reinterpret_cast<HMODULE>(base),&information,sizeof(information)) || information.SizeOfImage!=0x19f000) return 17;
         char selected[32]{}; GetEnvironmentVariableA("OPENBOXER_MS3D_MODE",selected,sizeof(selected)); mode=selected;
         if(reinterpret_cast<uintptr_t>(requestedMode)>=3 && reinterpret_cast<uintptr_t>(requestedMode)<=21) mode="replace";
+        if(reinterpret_cast<uintptr_t>(requestedMode)==22 || reinterpret_cast<uintptr_t>(requestedMode)==23)mode="replace";
         if(mode.empty()) mode="shadow";
         if(mode!="pass-through" && mode!="shadow" && mode!="replace") return 12;
         allocator={reinterpret_cast<ms3d::Allocate>(base+0x95420),reinterpret_cast<ms3d::Release>(base+0x958b0)};
@@ -148,6 +151,8 @@ extern "C" __declspec(dllexport) DWORD WINAPI ms3d_bootstrap(void* requestedMode
             if(!runtime_options::original(runtime_options::Unit::Frames) && !frames::install(base,framesMode[0]?framesMode:mode.c_str())) return 29;
             char strikeMode[32]{}; GetEnvironmentVariableA("OPENBOXER_STRIKE_MODE",strikeMode,sizeof(strikeMode));
             if((!runtime_options::original(runtime_options::Unit::Strike) || runtime_options::capture(runtime_options::Unit::Strike)) && !strike::install(base,strikeMode[0]?strikeMode:mode.c_str())) return 30;
+            char damageMode[32]{};GetEnvironmentVariableA("OPENBOXER_DAMAGE_MODE",damageMode,sizeof(damageMode));
+            if(!damage::install(base,damageMode[0]?damageMode:"original")) return 31;
         }
         log("bootstrap: hash/slot guard passed, virtual slot installed"); return 0;
     } catch(...) { return 16; }
@@ -288,3 +293,6 @@ extern "C" __declspec(dllexport) DWORD WINAPI action_replay_worker(void*) { retu
 
 extern "C" __declspec(dllexport) DWORD WINAPI strike_fixture_worker(void*) { return installed?strike::fixtures(base):20; }
 extern "C" __declspec(dllexport) DWORD WINAPI strike_replay_worker(void*) { return installed?strike::replays(base):20; }
+extern "C" __declspec(dllexport) DWORD WINAPI damage_observer_restore_worker(void*) { return damage::restoreObserver()?0:1; }
+extern "C" __declspec(dllexport) DWORD WINAPI damage_fixture_worker(void*) { return installed?damage::fixtures(base):20; }
+extern "C" __declspec(dllexport) DWORD WINAPI damage_replay_worker(void*) { return installed?damage::replays(base):20; }

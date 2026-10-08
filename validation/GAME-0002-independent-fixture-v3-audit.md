@@ -1,0 +1,13 @@
+# GAME-0002 independent v3 disposable prelaunch gate
+
+Result: PASS_SCOPED_DISPOSABLE_FIXTURE_AND_APPROVED_SOURCE_REPLAY_LAUNCH_ONLY. Behavioral equivalence remains BLOCKED pending root-owned observations and independent comparison.
+
+DLL SHA-256 21750016C2563B3B2B5D2761560C390C881CFCAE28F8CC11BA61123AF800BFA7; launcher SHA-256 0D2F468145C2A16763FB4284D292B669B35F744EAD92B897D9642C98BB1E0CE3. Independent freeze check verifies all 27 replacement source/binary entries plus main behavioral spec. Two specification-only hashes advanced after freeze through Agent1-authorized FP policy additions: typed supplement actual5434C89BF68DE0781206A70D8A3EFE078B537F2DEC5E8460DB33BDB72861BDB5, observer metadata actual820EBCA8E337259CF6858909BAA9C4968AE9288F66E7ECDE5567FFDC279ED3CD. The frozen source/binary approval does not erase this recorded specification update.
+
+Reviewed changes: corrected sound callback site mapping, assembly restores the same explicit 512-byte FP seed immediately before each actual original/candidate invocation, own GAME-0002 units compile with SSE/SSE2/vectorization disabled, callback returns preserve recorded architectural FP state. Whole/callback XMM bytes remain exact-comparison requirements; this gate does not claim the change fixes them until measured.
+
+Harness contains 60 typed paired cases, 22 read-only guard probes including valid control, and one safe actual wrong-caller dispatcher fallback pair. Guard probes check snapshot preservation, captured full FP equality and zero callbacks/counters. Dispatcher fallback uses otherwise supported wait input and isolated scripted dependencies, checks fallback exactly once and replacement zero, preserved ABI, reference state/sites/EAX. Independent raw event/FP comparison remains required.
+
+Approved-source replay accepts only the thirty exported typed records, restores source 512-byte input environment in the invoke assembly, verifies callback sequence/prebytes/RNG, source correlation after only documented structural pointer relocation, exact source EAX, route counters, ABI and cleanup. These internal checks complement independent source-original and source-candidate comparisons; they cannot establish PASS alone.
+
+Existing v2 isolation/restoration design remains: guarded disposable parked owned worker, all dependency sites scripted, no fake body enters native physics, originals isolated, test modes only, installed original and ordinary delivery untouched. Root must retain worker completion/cleanup witnesses and raw captures. Twelve preserved semantic cores independently hashed unchanged before this gate. Confidence HIGH for source audit, CONFIRMED for freeze hashes, UNKNOWN for unexecuted v3 equivalence.

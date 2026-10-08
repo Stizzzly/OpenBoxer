@@ -1,0 +1,761 @@
+{
+  "status": "APPROVED_CONTRACT_VECTOR_INTENTS_NOT_OBSERVATIONS",
+  "baseline": "GAME-0002-independent-ready-plan.md",
+  "count": 60,
+  "vectors": [
+    {
+      "id": "timing-below-block0",
+      "patch": {
+        "attackTimer_raw32": "3F7FFFFF",
+        "block_byte": 0
+      },
+      "assertions": {
+        "consume": false,
+        "poolGetters": 0,
+        "poolRng": 0
+      }
+    },
+    {
+      "id": "timing-below-block1",
+      "patch": {
+        "attackTimer_raw32": "3F7FFFFF",
+        "block_byte": 1
+      },
+      "assertions": {
+        "consume": false,
+        "poolGetters": 0,
+        "poolRng": 0
+      }
+    },
+    {
+      "id": "timing-equal-block0",
+      "patch": {
+        "attackTimer_raw32": "3F800000",
+        "block_byte": 0
+      },
+      "assertions": {
+        "consume": false,
+        "poolGetters": 0,
+        "poolRng": 0
+      }
+    },
+    {
+      "id": "timing-equal-block1",
+      "patch": {
+        "attackTimer_raw32": "3F800000",
+        "block_byte": 1
+      },
+      "assertions": {
+        "consume": false,
+        "poolGetters": 0,
+        "poolRng": 0
+      }
+    },
+    {
+      "id": "timing-above-block0",
+      "patch": {
+        "attackTimer_raw32": "3F800001",
+        "block_byte": 0
+      },
+      "assertions": {
+        "consume": true,
+        "poolGetters": 100,
+        "poolRng": 300
+      }
+    },
+    {
+      "id": "timing-above-block1",
+      "patch": {
+        "attackTimer_raw32": "3F800001",
+        "block_byte": 1
+      },
+      "assertions": {
+        "consume": true,
+        "poolGetters": 0,
+        "poolRng": 0
+      }
+    },
+    {
+      "id": "ordering-b0-m0-r0",
+      "patch": {
+        "block_byte": 0,
+        "readiness_int32": 0,
+        "marker_byte": 0
+      },
+      "assertions": {
+        "comboTimer_raw32": "00000000",
+        "health_raw32": "42BE0000",
+        "finalState": 9,
+        "comboCount_u32": 0,
+        "aux288_int32": 15,
+        "finalBlock": 0,
+        "consume": true
+      }
+    },
+    {
+      "id": "ordering-b0-m0-r1",
+      "patch": {
+        "block_byte": 0,
+        "readiness_int32": 1,
+        "marker_byte": 0
+      },
+      "assertions": {
+        "comboTimer_raw32": "00000000",
+        "health_raw32": "42BE0000",
+        "finalState": 9,
+        "comboCount_u32": 0,
+        "aux288_int32": 15,
+        "finalBlock": 0,
+        "consume": true
+      }
+    },
+    {
+      "id": "ordering-b0-m1-r0",
+      "patch": {
+        "block_byte": 0,
+        "readiness_int32": 0,
+        "marker_byte": 1
+      },
+      "assertions": {
+        "comboTimer_raw32": "00000000",
+        "health_raw32": "42BE0000",
+        "finalState": 9,
+        "comboCount_u32": 0,
+        "aux288_int32": 15,
+        "finalBlock": 0,
+        "consume": true
+      }
+    },
+    {
+      "id": "ordering-b0-m1-r1",
+      "patch": {
+        "block_byte": 0,
+        "readiness_int32": 1,
+        "marker_byte": 1
+      },
+      "assertions": {
+        "comboTimer_raw32": "00000000",
+        "health_raw32": "42BE0000",
+        "finalState": 11,
+        "comboCount_u32": 0,
+        "aux288_int32": 15,
+        "finalBlock": 1,
+        "consume": true
+      }
+    },
+    {
+      "id": "ordering-b1-m0-r0",
+      "patch": {
+        "block_byte": 1,
+        "readiness_int32": 0,
+        "marker_byte": 0,
+        "actorState_u32": 11
+      },
+      "assertions": {
+        "comboTimer_raw32": "00000000",
+        "health_raw32": "42C60000",
+        "finalState": 11,
+        "comboCount_u32": 0,
+        "aux288_int32": 15,
+        "finalBlock": 1,
+        "consume": true
+      }
+    },
+    {
+      "id": "ordering-b1-m0-r1",
+      "patch": {
+        "block_byte": 1,
+        "readiness_int32": 1,
+        "marker_byte": 0,
+        "actorState_u32": 11
+      },
+      "assertions": {
+        "comboTimer_raw32": "00000000",
+        "health_raw32": "42C60000",
+        "finalState": 11,
+        "comboCount_u32": 0,
+        "aux288_int32": 15,
+        "finalBlock": 1,
+        "consume": true
+      }
+    },
+    {
+      "id": "ordering-b1-m1-r0",
+      "patch": {
+        "block_byte": 1,
+        "readiness_int32": 0,
+        "marker_byte": 1,
+        "actorState_u32": 11
+      },
+      "assertions": {
+        "comboTimer_raw32": "00000000",
+        "health_raw32": "42C60000",
+        "finalState": 11,
+        "comboCount_u32": 0,
+        "aux288_int32": 15,
+        "finalBlock": 1,
+        "consume": true
+      }
+    },
+    {
+      "id": "ordering-b1-m1-r1",
+      "patch": {
+        "block_byte": 1,
+        "readiness_int32": 1,
+        "marker_byte": 1,
+        "actorState_u32": 11
+      },
+      "assertions": {
+        "comboTimer_raw32": "00000000",
+        "health_raw32": "42C60000",
+        "finalState": 11,
+        "comboCount_u32": 0,
+        "aux288_int32": 15,
+        "finalBlock": 1,
+        "consume": true
+      }
+    },
+    {
+      "id": "expiry-below",
+      "patch": {
+        "block_byte": 1,
+        "actorState_u32": 11,
+        "blockTimer_raw32": "3EB33332"
+      },
+      "assertions": {
+        "finalBlock": 1,
+        "health_raw32": "42C60000",
+        "finalState": 11
+      }
+    },
+    {
+      "id": "expiry-equal",
+      "patch": {
+        "block_byte": 1,
+        "actorState_u32": 11,
+        "blockTimer_raw32": "3EB33333"
+      },
+      "assertions": {
+        "finalBlock": 1,
+        "health_raw32": "42C60000",
+        "finalState": 11
+      }
+    },
+    {
+      "id": "expiry-above",
+      "patch": {
+        "block_byte": 1,
+        "actorState_u32": 11,
+        "blockTimer_raw32": "3EB33334"
+      },
+      "assertions": {
+        "finalBlock": 0,
+        "health_raw32": "42C60000",
+        "finalState": 0
+      }
+    },
+    {
+      "id": "rng-d1-below",
+      "patch": {
+        "cooldown192_raw32": "3F7FFFFF",
+        "difficulty_int32": 1
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 1,
+        "modulo": 3
+      }
+    },
+    {
+      "id": "rng-d1-equal",
+      "patch": {
+        "cooldown192_raw32": "3F800000",
+        "difficulty_int32": 1
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 3
+      }
+    },
+    {
+      "id": "rng-d1-above",
+      "patch": {
+        "cooldown192_raw32": "3F800001",
+        "difficulty_int32": 1
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 3
+      }
+    },
+    {
+      "id": "rng-d2-below",
+      "patch": {
+        "cooldown192_raw32": "3F7FFFFF",
+        "difficulty_int32": 2
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 1,
+        "modulo": 4
+      }
+    },
+    {
+      "id": "rng-d2-equal",
+      "patch": {
+        "cooldown192_raw32": "3F800000",
+        "difficulty_int32": 2
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 4
+      }
+    },
+    {
+      "id": "rng-d2-above",
+      "patch": {
+        "cooldown192_raw32": "3F800001",
+        "difficulty_int32": 2
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 4
+      }
+    },
+    {
+      "id": "rng-d3-below",
+      "patch": {
+        "cooldown192_raw32": "3F7FFFFF",
+        "difficulty_int32": 3
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 1,
+        "modulo": 4
+      }
+    },
+    {
+      "id": "rng-d3-equal",
+      "patch": {
+        "cooldown192_raw32": "3F800000",
+        "difficulty_int32": 3
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 4
+      }
+    },
+    {
+      "id": "rng-d3-above",
+      "patch": {
+        "cooldown192_raw32": "3F800001",
+        "difficulty_int32": 3
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 4
+      }
+    },
+    {
+      "id": "rng-d4-below",
+      "patch": {
+        "cooldown192_raw32": "3F7FFFFF",
+        "difficulty_int32": 4
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 1,
+        "modulo": 5
+      }
+    },
+    {
+      "id": "rng-d4-equal",
+      "patch": {
+        "cooldown192_raw32": "3F800000",
+        "difficulty_int32": 4
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 5
+      }
+    },
+    {
+      "id": "rng-d4-above",
+      "patch": {
+        "cooldown192_raw32": "3F800001",
+        "difficulty_int32": 4
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 5
+      }
+    },
+    {
+      "id": "rng-d5-below",
+      "patch": {
+        "cooldown192_raw32": "3F7FFFFF",
+        "difficulty_int32": 5
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 1,
+        "modulo": 5
+      }
+    },
+    {
+      "id": "rng-d5-equal",
+      "patch": {
+        "cooldown192_raw32": "3F800000",
+        "difficulty_int32": 5
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 5
+      }
+    },
+    {
+      "id": "rng-d5-above",
+      "patch": {
+        "cooldown192_raw32": "3F800001",
+        "difficulty_int32": 5
+      },
+      "assertions": {
+        "decisionRngBeforeImpulse": true,
+        "poolRng": 300,
+        "decisionRngCount": 0,
+        "modulo": 5
+      }
+    },
+    {
+      "id": "mode0-effective2",
+      "patch": {
+        "mode_int32": 0,
+        "cooldown192_raw32": "BF800000",
+        "difficulty_int32": 5
+      },
+      "assertions": {
+        "decisionRngCount": 1,
+        "modulo": 4,
+        "actor220_int32": 3
+      }
+    },
+    {
+      "id": "selection-ai1",
+      "patch": {
+        "AIindex_int32": 1
+      },
+      "assertions": {
+        "actor220_int32": 1
+      }
+    },
+    {
+      "id": "selection-ai2",
+      "patch": {
+        "AIindex_int32": 2
+      },
+      "assertions": {
+        "actor220_int32": 2
+      }
+    },
+    {
+      "id": "selection-ai3",
+      "patch": {
+        "AIindex_int32": 3
+      },
+      "assertions": {
+        "actor220_int32": 3
+      }
+    },
+    {
+      "id": "selection-ai4",
+      "patch": {
+        "AIindex_int32": 4
+      },
+      "assertions": {
+        "actor220_int32": 4
+      }
+    },
+    {
+      "id": "selection-ai5",
+      "patch": {
+        "AIindex_int32": 5
+      },
+      "assertions": {
+        "actor220_int32": 5
+      }
+    },
+    {
+      "id": "selection-ai6",
+      "patch": {
+        "AIindex_int32": 6
+      },
+      "assertions": {
+        "actor220_int32": 6
+      }
+    },
+    {
+      "id": "selection-ai7",
+      "patch": {
+        "AIindex_int32": 7
+      },
+      "assertions": {
+        "actor220_int32": 7
+      }
+    },
+    {
+      "id": "counter-p1-c00000000",
+      "patch": {
+        "counter_raw32": "00000000",
+        "previousType_u32": 1
+      },
+      "assertions": {
+        "counterModulo32": true,
+        "increment": false
+      }
+    },
+    {
+      "id": "counter-p1-cFFFFFFFF",
+      "patch": {
+        "counter_raw32": "FFFFFFFF",
+        "previousType_u32": 1
+      },
+      "assertions": {
+        "counterModulo32": true,
+        "increment": false
+      }
+    },
+    {
+      "id": "counter-p2-c00000000",
+      "patch": {
+        "counter_raw32": "00000000",
+        "previousType_u32": 2
+      },
+      "assertions": {
+        "counterModulo32": true,
+        "increment": true
+      }
+    },
+    {
+      "id": "counter-p2-cFFFFFFFF",
+      "patch": {
+        "counter_raw32": "FFFFFFFF",
+        "previousType_u32": 2
+      },
+      "assertions": {
+        "counterModulo32": true,
+        "increment": true
+      }
+    },
+    {
+      "id": "audio-s0-i1-b0",
+      "patch": {
+        "block_byte": 0,
+        "sound_byte": 0,
+        "AIindex_int32": 1
+      },
+      "assertions": {
+        "consumptionPlayCount": 0,
+        "tailQueryCount": 1
+      }
+    },
+    {
+      "id": "audio-s0-i1-b1",
+      "patch": {
+        "block_byte": 1,
+        "sound_byte": 0,
+        "AIindex_int32": 1
+      },
+      "assertions": {
+        "consumptionPlayCount": 0,
+        "tailQueryCount": 1
+      }
+    },
+    {
+      "id": "audio-s0-i5-b0",
+      "patch": {
+        "block_byte": 0,
+        "sound_byte": 0,
+        "AIindex_int32": 5
+      },
+      "assertions": {
+        "consumptionPlayCount": 0,
+        "tailQueryCount": 1
+      }
+    },
+    {
+      "id": "audio-s0-i5-b1",
+      "patch": {
+        "block_byte": 1,
+        "sound_byte": 0,
+        "AIindex_int32": 5
+      },
+      "assertions": {
+        "consumptionPlayCount": 0,
+        "tailQueryCount": 1
+      }
+    },
+    {
+      "id": "audio-s1-i1-b0",
+      "patch": {
+        "block_byte": 0,
+        "sound_byte": 1,
+        "AIindex_int32": 1
+      },
+      "assertions": {
+        "consumptionPlayCount": 2,
+        "tailQueryCount": 1
+      }
+    },
+    {
+      "id": "audio-s1-i1-b1",
+      "patch": {
+        "block_byte": 1,
+        "sound_byte": 1,
+        "AIindex_int32": 1
+      },
+      "assertions": {
+        "consumptionPlayCount": 1,
+        "tailQueryCount": 1
+      }
+    },
+    {
+      "id": "audio-s1-i5-b0",
+      "patch": {
+        "block_byte": 0,
+        "sound_byte": 1,
+        "AIindex_int32": 5
+      },
+      "assertions": {
+        "consumptionPlayCount": 2,
+        "tailQueryCount": 1
+      }
+    },
+    {
+      "id": "audio-s1-i5-b1",
+      "patch": {
+        "block_byte": 1,
+        "sound_byte": 1,
+        "AIindex_int32": 5
+      },
+      "assertions": {
+        "consumptionPlayCount": 1,
+        "tailQueryCount": 1
+      }
+    },
+    {
+      "id": "tail-speed-below",
+      "patch": {
+        "absoluteCallback_promoteRaw32": "3FBFFFFF"
+      },
+      "assertions": {
+        "tailBranch": "add"
+      }
+    },
+    {
+      "id": "tail-speed-equal",
+      "patch": {
+        "absoluteCallback_promoteRaw32": "3FC00000"
+      },
+      "assertions": {
+        "tailBranch": "multiply"
+      }
+    },
+    {
+      "id": "tail-speed-above",
+      "patch": {
+        "absoluteCallback_promoteRaw32": "3FC00001"
+      },
+      "assertions": {
+        "tailBranch": "multiply"
+      }
+    },
+    {
+      "id": "tail-limit-below",
+      "patch": {
+        "finalSqrtCallback_promoteRaw32": "403FFFFF"
+      },
+      "assertions": {
+        "returnSource": "sqrtHigh16_OR_finalSW",
+        "limit": false
+      }
+    },
+    {
+      "id": "tail-limit-equal",
+      "patch": {
+        "finalSqrtCallback_promoteRaw32": "40400000"
+      },
+      "assertions": {
+        "returnSource": "sqrtHigh16_OR_finalSW",
+        "limit": false
+      }
+    },
+    {
+      "id": "tail-limit-above",
+      "patch": {
+        "finalSqrtCallback_promoteRaw32": "40400001"
+      },
+      "assertions": {
+        "returnSource": "finalBodyCallbackEAX",
+        "limit": true
+      }
+    },
+    {
+      "id": "far-miss-lowcooldown",
+      "patch": {
+        "opponentX_raw32": "41000000",
+        "cooldown192_raw32": "BF800000",
+        "decision204_byte": 0,
+        "pending_byte": 0
+      },
+      "assertions": {
+        "poolGetters": 0,
+        "decisionRngCount": 1,
+        "health_raw32": "42C80000",
+        "tailRequired": true,
+        "poolRng": 0,
+        "consume": false
+      }
+    },
+    {
+      "id": "no-movement-flags",
+      "patch": {
+        "opponentX_raw32": "40C00000",
+        "decision204_byte": 0,
+        "pending_byte": 1,
+        "timer180_raw32": "BF800000",
+        "cooldown192_raw32": "40800000",
+        "timer184_raw32": "BF800000",
+        "timer188_raw32": "BF800000"
+      },
+      "assertions": {
+        "choice_raw32": "CCCCCCCC",
+        "tailRequired": true,
+        "movement171_byte": 0,
+        "defaultConstructorCount": 1
+      }
+    }
+  ]
+}

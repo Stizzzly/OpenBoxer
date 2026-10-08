@@ -4,8 +4,8 @@
 #include <cstdio>
 #include <cstring>
 namespace runtime_options {
-enum class Unit : unsigned { Io, World, Texture, Upload, Lighting, Selection, Draw, Character, Animation, Clip, Frames, Action, Strike, Count };
-inline constexpr const char *names[]={"ms3d","world","texture","upload","lighting","selection","draw","character","animation","clip","frames","action","strike"};
+enum class Unit : unsigned { Io, World, Texture, Upload, Lighting, Selection, Draw, Character, Animation, Clip, Frames, Action, Strike, Damage, Count };
+inline constexpr const char *names[]={"ms3d","world","texture","upload","lighting","selection","draw","character","animation","clip","frames","action","strike","damage"};
 inline bool diagnosticFlags[unsigned(Unit::Count)]{};
 inline bool captureFlags[unsigned(Unit::Count)]{};
 inline bool originalFlags[unsigned(Unit::Count)]{};

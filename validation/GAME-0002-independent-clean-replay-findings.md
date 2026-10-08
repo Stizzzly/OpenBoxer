@@ -1,0 +1,13 @@
+# GAME-0002 clean source replay v4 findings
+
+Result FAIL_FLOAT (XMM architectural state). No native candidate activation gate or final behavioral PASS is issued.
+
+Forty corrected original-only native captures pass 114,448 integrity checks. Independent full entry guards and local identity checks admit twenty-eight distinct clean sources; twelve unsupported combo/recoil sources remain rejected. Exact initial pure position getter/body linkage and architectural full/abridged FP tag consistency were additionally checked. Selected export adds 1,650 checks with zero errors; old thirty historical sources are preserved separately.
+
+Twenty-eight replay runs have matching root-owned module/source/report provenance: 1,064 independent checks, zero errors. Loaded frozen replacement DLL E34F66520A6FFB963FD7F5968DDA96DA5F0C39B6CB278264977E6FE729CA7A2E at70FB0000, size2289664. Every producer report records original/candidate source state/EAX correlation, exact event count, zero typed errors, correct replacement/fallback counters, ABI and cleanup/worker success. These internal reports do not supersede independent FP comparison.
+
+Independent source->original and original->candidate state/event/architectural comparisons perform 456,164 checks. Source->original passes all such checks. Candidate fails 1,267 XMM comparisons; every other state/data/event/EAX/x87/MXCSR comparison passes. Full raw-FP inventory performs 319,388 checks and retains all differences separately, including 28 justified empty-slot payload differences, 15,845 documented padding/reserved differences and 5,128 unresolved legacy-provenance fields.
+
+Candidate XMM failures occur between exact opaque callback returns and later callback entries/whole exit. Eleven sources are affected:008(407),031(406),034(406),014/017/021/026/027/028/038/039(six each). First008 consumption constructor entry1D775 should preserve XMM6 raw00000040000000000000000000000000 and XMM7 raw00000000000000800000000000000000; candidate zeroes them. No callback exit XMM disagreement exists. This narrows investigation to replacement-owned work/copy setup between callbacks; compiler no-SSE flags alone do not establish preservation through runtime library calls.
+
+Corrective replacement-only regression should use nonzero patterned incoming XMM and callback-varying XMM, then rerun frozen sixty fixtures/guards and clean twenty-eight sources. Existing clean original observations establish source fidelity; the current failure does not require another original recapture. All raw records and failed v4 reports remain preserved. Confidence CONFIRMED for comparisons/provenance consistency, HIGH for between-callback localization, UNKNOWN for untested correction and final native/composed/default-off delivery.

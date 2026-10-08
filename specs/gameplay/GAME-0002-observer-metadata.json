@@ -1,0 +1,1412 @@
+{
+  "id": "GAME-0002",
+  "status": "APPROVED_OBSERVER_ONLY",
+  "semanticSpec": "GAME-0002-opponent-strike-consumption.md",
+  "scope": "Root-owned opt-in original whole-entry and typed callback observation; no replacement gameplay behavior, midbody detour or copied original code. Give fresh implementer approved metadata/specification only; original analysis stays private.",
+  "originalSha256": "77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6",
+  "imageBase": "0x400000",
+  "entry": {
+    "thunkRva": "0x13a7",
+    "bodyRva": "0x1c4e0",
+    "exclusiveEndRva": "0x1e320",
+    "lastReturnRva": "0x1e31d",
+    "callerRva": "0x2d8e6",
+    "returnRva": "0x2d8eb",
+    "abi": "x86_thiscall_ECX_actor_int32_stack_arg_ret4",
+    "actorRva": "0x1849f8",
+    "actorBytes": 232,
+    "argument": "live_mode_RVA184790_int32_0_or1",
+    "calleeSaved": [
+      "EBX",
+      "ESI",
+      "EDI",
+      "EBP"
+    ],
+    "return": "void_semantic_rawEAX_and_complete_FP_observable",
+    "thunkInstruction": {
+      "kind": "near_JMP",
+      "length": 5,
+      "targetRva": "0x1c4e0"
+    },
+    "callerInstruction": {
+      "kind": "direct_CALL",
+      "length": 5,
+      "targetRva": "0x13a7"
+    },
+    "lastReturnInstruction": {
+      "kind": "ret_imm",
+      "length": 3,
+      "popBytes": 4
+    }
+  },
+  "capture": {
+    "fp": "Capture and restore complete x87 CW/SW/TOP/full_tags/raw80_registers+MXCSR without modifying sticky/comparison/stack state; record callback entry/return and whole entry/exit. Scalar events carry raw80_ST0 plus incidental rawEAX. Parent comparisons occur between callbacks; capture whole exit too.",
+    "pointerRoles": [
+      "static_AI_actor",
+      "static_player_actor",
+      "registered_player_body",
+      "registered_opponent_body",
+      "registered_world",
+      "global_vectors",
+      "audio_objects",
+      "local_output_vectors",
+      "local_scalar_output",
+      "returned_element",
+      "returned_output"
+    ],
+    "eventFields": [
+      "ordinal",
+      "callRva",
+      "returnRva",
+      "identity",
+      "ECX_pointer_role_or_raw",
+      "primitive_stack_args",
+      "raw16_input_output_vectors",
+      "mutable_argument_or_actor_body_global_changes",
+      "return_pointer_role_or_rawEAX",
+      "raw80_ST0_if_scalar",
+      "entryFP",
+      "returnFP"
+    ],
+    "compact": "Pure RNG event: rawEAX, prior/after RNGword, exactFP, ordering; pure getter event: inputbody role, output16, returnedpointer role, rawEAX, exactFP. Body snapshots at whole entry/exit and mutating physics calls, no fullbody per RNG/getter.",
+    "actorOwnExtent": "A offsets0..231 captured; own writes detailed in approved semantic specification. Preserve all unlisted bytes.",
+    "globalExtents": [
+      {
+        "rva": "0x1761c8",
+        "size": 200
+      },
+      {
+        "rva": "0x1762a0",
+        "size": 128
+      },
+      {
+        "rva": "0x176370",
+        "size": 4
+      },
+      {
+        "rva": "0x175eec",
+        "size": 4
+      },
+      {
+        "rva": "0x184778",
+        "size": 80
+      },
+      {
+        "rva": "0x185594",
+        "size": 4
+      },
+      {
+        "rva": "0x177f90",
+        "size": 16
+      },
+      {
+        "rva": "0x1849a8",
+        "size": 4
+      },
+      {
+        "rva": "0x184a90",
+        "size": 4
+      },
+      {
+        "rva": "0x1853a4",
+        "size": 4
+      },
+      {
+        "rva": "0x1848e0",
+        "size": 16
+      },
+      {
+        "rva": "0x184ae0",
+        "size": 16
+      },
+      {
+        "rva": "0x184c98",
+        "size": 16
+      },
+      {
+        "rva": "0x17f710",
+        "size": 7600
+      },
+      {
+        "rva": "0x171b90",
+        "size": 4
+      },
+      {
+        "rva": "0x175df0",
+        "size": 28
+      }
+    ],
+    "poolOwnWrites": "100 records stride76; byte+0 and float32 words+40/+44/+48; all other63bytes preserved",
+    "bodyExtent": 2288,
+    "bodyWitness": "self0,graph216,world244,selector652,links2276/2280,active2284; original registered world list fields10968/10972/10976. Both bodies independent.",
+    "nativeCapture": "Root-owned test copy only, transparent whole thunk forward once with unchanged ECX/stack args; all unregistered routes/threads callback observers transparently forward unchanged original exactly once. Save/restore bytes/IAT pointers; ordinary launch has no hooks/files.",
+    "IAT": "RVA18CC00; imported callRVA1E1F4 is6bytes return1E1FA. Save original API pointer, invoke unchanged API once; separate from five-byte direct CALL sites.",
+    "blockTiming": "Record block at whole entry, at consumption and whole exit independently. Damage precedes readiness/block-start/expiry.",
+    "fpEquivalencePolicy": "GAME-0002-typed-fp-locals.md: Authoritative FP capture and equivalence policy — 2026-10-07. Preserve all captured raw bytes; EXACT CW/fullSW/TOP/full+abridged tags/MXCSR/live80/scalar80. Empty-tag payload exclusion is equivalence-only with checkpoint/slot/tags/raw differences reported. FIP/FDP provenance and reserved format bytes require explicit recorded reason; no blanket FOP exclusion.",
+    "xmmEquivalencePolicy": "EXACT architectural XMM0..XMM7 all128bits each at matched whole/callback entry/return; FXSAVE offsets0xA0..0x11F are not reserved. Original wholebody1887instruction scan has no directXMM operands, callbacks remain opaque exact effects. No ABI-volatile exclusion approved. Preserve raw capture; mismatches FAIL_STATE/FAIL_FLOAT or BLOCKED for unestablished comparable input/capture.",
+    "fopEquivalencePolicy": "See typed-FP supplement FNSTENV FOP memory-addressing canonicalization. EXACT decoded escapeOpcode,/reg operation, width, operandorder, stackeffect and operandrole. Only memoryform ModRM mod/rm addressencoding may differ with recorded percheckpoint provenance; mod!=3 both. Preserve/inventory everyrawFOP/FIP/FDP pair. No blanketFOP mask; unresolved BLOCKED, actualoperation mismatch FAIL_FLOAT.",
+    "originalFpProvenanceMap": "GAME-0002-original-fp-provenance.json",
+    "scriptedResetLegacyProvenancePolicy": "Typed-FP supplement Stage4 explicit scripted-reset legacy provenance ruling 2026-10-08: ONLY15 named checkpoints from validation/GAME-0002-independent-stage4-legacy-reset-checkpoints.json; ONLY FIP/FDP/FOP/FCS/FDS reset0 versus identified stale parent provenance. Require exactCW/fullSW/noSF/TOP/tags/MXCSR/XMM/live80 and scriptedresults/order, maskedexceptions, no metadata-consuming callback. Inventoryallrawpairs/direction/parentrole; unresolvedBLOCKED. Not nativeblanketwaiver or capturecorruptionpermission."
+  },
+  "calls": [
+    {
+      "callRva": "0x1c70b",
+      "returnRva": "0x1c710",
+      "identity": "sub_45AC10",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_body",
+      "args": [
+        "output16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45AC10",
+        "targetRva": "0x5ac10"
+      }
+    },
+    {
+      "callRva": "0x1c740",
+      "returnRva": "0x1c745",
+      "identity": "sub_45AC10",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_body",
+      "args": [
+        "output16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45AC10",
+        "targetRva": "0x5ac10"
+      }
+    },
+    {
+      "callRva": "0x1c76f",
+      "returnRva": "0x1c774",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c77d",
+      "returnRva": "0x1c782",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c793",
+      "returnRva": "0x1c798",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c7a1",
+      "returnRva": "0x1c7a6",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c7bd",
+      "returnRva": "0x1c7c2",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c7cb",
+      "returnRva": "0x1c7d0",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c7e1",
+      "returnRva": "0x1c7e6",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c7ef",
+      "returnRva": "0x1c7f4",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c80a",
+      "returnRva": "0x1c80f",
+      "identity": "_sqrt",
+      "abi": "cdecl_caller8",
+      "ecx": null,
+      "args": [
+        "float64_raw"
+      ],
+      "ret": "raw80_ST0_and_rawEAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "_sqrt",
+        "targetRva": "0x95b74"
+      }
+    },
+    {
+      "callRva": "0x1c8be",
+      "returnRva": "0x1c8c3",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1c95e",
+      "returnRva": "0x1c963",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1cac6",
+      "returnRva": "0x1cacb",
+      "identity": "sub_401ABE",
+      "abi": "cdecl_caller8",
+      "ecx": null,
+      "args": [
+        "output16_pointer",
+        "input16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401ABE",
+        "targetRva": "0x1abe"
+      }
+    },
+    {
+      "callRva": "0x1cad6",
+      "returnRva": "0x1cadb",
+      "identity": "sub_401F64",
+      "abi": "cdecl_caller12",
+      "ecx": null,
+      "args": [
+        "output16_pointer",
+        "input16_pointer",
+        "float32_raw"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401F64",
+        "targetRva": "0x1f64"
+      }
+    },
+    {
+      "callRva": "0x1cb47",
+      "returnRva": "0x1cb4c",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1cb7b",
+      "returnRva": "0x1cb80",
+      "identity": "sub_401F64",
+      "abi": "cdecl_caller12",
+      "ecx": null,
+      "args": [
+        "output16_pointer",
+        "input16_pointer",
+        "float32_raw"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401F64",
+        "targetRva": "0x1f64"
+      }
+    },
+    {
+      "callRva": "0x1cbad",
+      "returnRva": "0x1cbb2",
+      "identity": "sub_401839",
+      "abi": "thiscall_ret12",
+      "ecx": "output16",
+      "args": [
+        "raw32_X",
+        "raw32_Y",
+        "raw32_Z"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "XYZ_only_preserve_W",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401839",
+        "targetRva": "0x1839"
+      }
+    },
+    {
+      "callRva": "0x1cbb8",
+      "returnRva": "0x1cbbd",
+      "identity": "sub_401B1D",
+      "abi": "thiscall_ret0",
+      "ecx": "A_plus124",
+      "args": [],
+      "ret": "rawEAX",
+      "writes": "Z_Y_X_zero_preserve_W",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401B1D",
+        "targetRva": "0x1b1d"
+      }
+    },
+    {
+      "callRva": "0x1cc19",
+      "returnRva": "0x1cc1e",
+      "identity": "_rand",
+      "abi": "cdecl_caller0",
+      "ecx": null,
+      "args": [],
+      "ret": "int32_EAX_0_to32767",
+      "writes": "module_RNG_RVA171B90_uint32",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "_rand",
+        "targetRva": "0x9a750"
+      }
+    },
+    {
+      "callRva": "0x1cc3e",
+      "returnRva": "0x1cc43",
+      "identity": "_rand",
+      "abi": "cdecl_caller0",
+      "ecx": null,
+      "args": [],
+      "ret": "int32_EAX_0_to32767",
+      "writes": "module_RNG_RVA171B90_uint32",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "_rand",
+        "targetRva": "0x9a750"
+      }
+    },
+    {
+      "callRva": "0x1cc67",
+      "returnRva": "0x1cc6c",
+      "identity": "_rand",
+      "abi": "cdecl_caller0",
+      "ecx": null,
+      "args": [],
+      "ret": "int32_EAX_0_to32767",
+      "writes": "module_RNG_RVA171B90_uint32",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "_rand",
+        "targetRva": "0x9a750"
+      }
+    },
+    {
+      "callRva": "0x1d775",
+      "returnRva": "0x1d77a",
+      "identity": "sub_401839",
+      "abi": "thiscall_ret12",
+      "ecx": "output16",
+      "args": [
+        "raw32_X",
+        "raw32_Y",
+        "raw32_Z"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "XYZ_only_preserve_W",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401839",
+        "targetRva": "0x1839"
+      }
+    },
+    {
+      "callRva": "0x1d7bf",
+      "returnRva": "0x1d7c4",
+      "identity": "sub_45B780",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_opponent_body",
+      "args": [
+        "input16_pointer"
+      ],
+      "ret": "rawEAX",
+      "writes": "opponent_body",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45B780",
+        "targetRva": "0x5b780"
+      }
+    },
+    {
+      "callRva": "0x1d7e1",
+      "returnRva": "0x1d7e6",
+      "identity": "sub_40179E",
+      "abi": "thiscall_ret0",
+      "ecx": "audio_object578050",
+      "args": [],
+      "ret": "rawEAX",
+      "writes": "opaque_OpenAL_state",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_40179E",
+        "targetRva": "0x179e"
+      },
+      "branch": "sound_nonzero_and_block576234_zero"
+    },
+    {
+      "callRva": "0x1d7ed",
+      "returnRva": "0x1d7f2",
+      "identity": "sub_40179E",
+      "abi": "thiscall_ret0",
+      "ecx": "audio_object578070",
+      "args": [],
+      "ret": "rawEAX",
+      "writes": "opaque_OpenAL_state",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_40179E",
+        "targetRva": "0x179e"
+      },
+      "branch": "sound_nonzero_and_block576234_nonzero"
+    },
+    {
+      "callRva": "0x1d80b",
+      "returnRva": "0x1d810",
+      "identity": "sub_40179E",
+      "abi": "thiscall_ret0",
+      "ecx": "audio_object",
+      "args": [],
+      "ret": "rawEAX",
+      "writes": "opaque_OpenAL_state",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_40179E",
+        "targetRva": "0x179e"
+      }
+    },
+    {
+      "callRva": "0x1d817",
+      "returnRva": "0x1d81c",
+      "identity": "sub_40179E",
+      "abi": "thiscall_ret0",
+      "ecx": "audio_object",
+      "args": [],
+      "ret": "rawEAX",
+      "writes": "opaque_OpenAL_state",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_40179E",
+        "targetRva": "0x179e"
+      }
+    },
+    {
+      "callRva": "0x1d900",
+      "returnRva": "0x1d905",
+      "identity": "sub_45AC10",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_body",
+      "args": [
+        "output16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45AC10",
+        "targetRva": "0x5ac10"
+      }
+    },
+    {
+      "callRva": "0x1d92f",
+      "returnRva": "0x1d934",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1d949",
+      "returnRva": "0x1d94e",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1d95d",
+      "returnRva": "0x1d962",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1d977",
+      "returnRva": "0x1d97c",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1d98b",
+      "returnRva": "0x1d990",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1d9a5",
+      "returnRva": "0x1d9aa",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1d9e8",
+      "returnRva": "0x1d9ed",
+      "identity": "sub_45B210",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_opponent_body",
+      "args": [
+        "output16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45B210",
+        "targetRva": "0x5b210"
+      }
+    },
+    {
+      "callRva": "0x1da04",
+      "returnRva": "0x1da09",
+      "identity": "_rand",
+      "abi": "cdecl_caller0",
+      "ecx": null,
+      "args": [],
+      "ret": "int32_EAX_0_to32767",
+      "writes": "module_RNG_RVA171B90_uint32",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "_rand",
+        "targetRva": "0x9a750"
+      }
+    },
+    {
+      "callRva": "0x1da3b",
+      "returnRva": "0x1da40",
+      "identity": "_rand",
+      "abi": "cdecl_caller0",
+      "ecx": null,
+      "args": [],
+      "ret": "int32_EAX_0_to32767",
+      "writes": "module_RNG_RVA171B90_uint32",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "_rand",
+        "targetRva": "0x9a750"
+      }
+    },
+    {
+      "callRva": "0x1da6c",
+      "returnRva": "0x1da71",
+      "identity": "_rand",
+      "abi": "cdecl_caller0",
+      "ecx": null,
+      "args": [],
+      "ret": "int32_EAX_0_to32767",
+      "writes": "module_RNG_RVA171B90_uint32",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "_rand",
+        "targetRva": "0x9a750"
+      }
+    },
+    {
+      "callRva": "0x1dc28",
+      "returnRva": "0x1dc2d",
+      "identity": "sub_401839",
+      "abi": "thiscall_ret12",
+      "ecx": "output16",
+      "args": [
+        "raw32_X",
+        "raw32_Y",
+        "raw32_Z"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "XYZ_only_preserve_W",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401839",
+        "targetRva": "0x1839"
+      }
+    },
+    {
+      "callRva": "0x1e037",
+      "returnRva": "0x1e03c",
+      "identity": "sub_401D4D",
+      "abi": "thiscall_ret0",
+      "ecx": "A",
+      "args": [],
+      "ret": "rawEAX",
+      "writes": "A_plus28_to75_and_system_cursor",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401D4D",
+        "targetRva": "0x1d4d"
+      }
+    },
+    {
+      "callRva": "0x1e04c",
+      "returnRva": "0x1e051",
+      "identity": "sub_45AC10",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_body",
+      "args": [
+        "output16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45AC10",
+        "targetRva": "0x5ac10"
+      }
+    },
+    {
+      "callRva": "0x1e079",
+      "returnRva": "0x1e07e",
+      "identity": "sub_401839",
+      "abi": "thiscall_ret12",
+      "ecx": "output16",
+      "args": [
+        "raw32_X",
+        "raw32_Y",
+        "raw32_Z"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "XYZ_only_preserve_W",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401839",
+        "targetRva": "0x1839"
+      }
+    },
+    {
+      "callRva": "0x1e08e",
+      "returnRva": "0x1e093",
+      "identity": "sub_45B2E0",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_opponent_body",
+      "args": [
+        "input16_pointer"
+      ],
+      "ret": "rawEAX",
+      "writes": "opponent_body",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45B2E0",
+        "targetRva": "0x5b2e0"
+      }
+    },
+    {
+      "callRva": "0x1e0a3",
+      "returnRva": "0x1e0a8",
+      "identity": "sub_45B210",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_opponent_body",
+      "args": [
+        "output16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45B210",
+        "targetRva": "0x5b210"
+      }
+    },
+    {
+      "callRva": "0x1e0e5",
+      "returnRva": "0x1e0ea",
+      "identity": "sub_401014",
+      "abi": "cdecl_caller16",
+      "ecx": null,
+      "args": [
+        "vector16_BY_VALUE"
+      ],
+      "ret": "raw80_ST0_and_rawEAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401014",
+        "targetRva": "0x1014"
+      }
+    },
+    {
+      "callRva": "0x1e0f0",
+      "returnRva": "0x1e0f5",
+      "identity": "sub_4011E0",
+      "abi": "cdecl_caller4",
+      "ecx": null,
+      "args": [
+        "float32_raw"
+      ],
+      "ret": "raw80_ST0_and_rawEAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4011E0",
+        "targetRva": "0x11e0"
+      }
+    },
+    {
+      "callRva": "0x1e109",
+      "returnRva": "0x1e10e",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1e145",
+      "returnRva": "0x1e14a",
+      "identity": "sub_401CD0",
+      "abi": "cdecl_caller12",
+      "ecx": null,
+      "args": [
+        "output16_pointer",
+        "input16_pointer",
+        "input16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401CD0",
+        "targetRva": "0x1cd0"
+      }
+    },
+    {
+      "callRva": "0x1e17e",
+      "returnRva": "0x1e183",
+      "identity": "sub_401F64",
+      "abi": "cdecl_caller12",
+      "ecx": null,
+      "args": [
+        "output16_pointer",
+        "input16_pointer",
+        "float32_raw"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401F64",
+        "targetRva": "0x1f64"
+      }
+    },
+    {
+      "callRva": "0x1e1b2",
+      "returnRva": "0x1e1b7",
+      "identity": "sub_45B690",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_opponent_body",
+      "args": [
+        "input16_pointer"
+      ],
+      "ret": "rawEAX",
+      "writes": "opponent_body",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45B690",
+        "targetRva": "0x5b690"
+      }
+    },
+    {
+      "callRva": "0x1e1bd",
+      "returnRva": "0x1e1c2",
+      "identity": "sub_401B36",
+      "abi": "thiscall_ret0",
+      "ecx": "A_plus92",
+      "args": [],
+      "ret": "raw80_ST0_and_rawEAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401B36",
+        "targetRva": "0x1b36"
+      }
+    },
+    {
+      "callRva": "0x1e1f4",
+      "returnRva": "0x1e1fa",
+      "identity": "ds:__imp_alGetSourcei",
+      "abi": "cdecl_caller12",
+      "ecx": null,
+      "args": [
+        "uint32_source",
+        "int32_parameter",
+        "outputInt32_pointer"
+      ],
+      "ret": "rawEAX",
+      "writes": "outputInt32",
+      "observerKind": "IAT_saved_original_pointer_forward_once",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "indirect_IAT_CALL",
+        "length": 6,
+        "targetIdentity": "ds:__imp_alGetSourcei",
+        "targetRva": null,
+        "iatSlotRva": "0x18cc00"
+      },
+      "import": {
+        "module": "OpenAL32.dll",
+        "symbol": "alGetSourcei",
+        "resolvedPointer": "UNKNOWN_until_native_LoadLibrary_import_resolution; save_original_IAT_pointer"
+      }
+    },
+    {
+      "callRva": "0x1e230",
+      "returnRva": "0x1e235",
+      "identity": "sub_40179E",
+      "abi": "thiscall_ret0",
+      "ecx": "audio_object",
+      "args": [],
+      "ret": "rawEAX",
+      "writes": "opaque_OpenAL_state",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_40179E",
+        "targetRva": "0x179e"
+      }
+    },
+    {
+      "callRva": "0x1e261",
+      "returnRva": "0x1e266",
+      "identity": "sub_401EB0",
+      "abi": "thiscall_ret0",
+      "ecx": "audio_object575DF0",
+      "args": [],
+      "ret": "rawEAX",
+      "writes": "opaque_OpenAL_state",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401EB0",
+        "targetRva": "0x1eb0"
+      }
+    },
+    {
+      "callRva": "0x1e26e",
+      "returnRva": "0x1e273",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1e27d",
+      "returnRva": "0x1e282",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1e294",
+      "returnRva": "0x1e299",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1e2a3",
+      "returnRva": "0x1e2a8",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1e2b8",
+      "returnRva": "0x1e2bd",
+      "identity": "_sqrt",
+      "abi": "cdecl_caller8",
+      "ecx": null,
+      "args": [
+        "float64_raw"
+      ],
+      "ret": "raw80_ST0_and_rawEAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "_sqrt",
+        "targetRva": "0x95b74"
+      }
+    },
+    {
+      "callRva": "0x1e2d5",
+      "returnRva": "0x1e2da",
+      "identity": "sub_4019C9",
+      "abi": "thiscall_ret4",
+      "ecx": "vector16",
+      "args": [
+        "int32_index"
+      ],
+      "ret": "element_pointer_EAX",
+      "writes": "none",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_4019C9",
+        "targetRva": "0x19c9"
+      }
+    },
+    {
+      "callRva": "0x1e2f3",
+      "returnRva": "0x1e2f8",
+      "identity": "sub_401F5F",
+      "abi": "cdecl_caller12",
+      "ecx": null,
+      "args": [
+        "output16_pointer",
+        "float32_raw",
+        "input16_pointer"
+      ],
+      "ret": "output_pointer_EAX",
+      "writes": "output16",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_401F5F",
+        "targetRva": "0x1f5f"
+      }
+    },
+    {
+      "callRva": "0x1e305",
+      "returnRva": "0x1e30a",
+      "identity": "sub_45B690",
+      "abi": "thiscall_ret4",
+      "ecx": "registered_opponent_body",
+      "args": [
+        "input16_pointer"
+      ],
+      "ret": "rawEAX",
+      "writes": "opponent_body",
+      "observerKind": "five_byte_direct_CALL_typed_observer",
+      "forwardExactlyOnce": true,
+      "instruction": {
+        "kind": "direct_CALL",
+        "length": 5,
+        "targetIdentity": "sub_45B690",
+        "targetRva": "0x5b690"
+      }
+    }
+  ]
+}

@@ -818,6 +818,123 @@ _damage_script62:
  call _damage_script_dispatch
  addl $12,%esp
  ret $4
+.globl _damage_observer63
+_damage_observer63:
+ pushl $63
+ jmp _damage_observer_common
+.globl _damage_script63
+_damage_script63:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $63
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret
+.globl _damage_observer64
+_damage_observer64:
+ pushl $64
+ jmp _damage_observer_common
+.globl _damage_script64
+_damage_script64:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $64
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret
+.globl _damage_observer65
+_damage_observer65:
+ pushl $65
+ jmp _damage_observer_common
+.globl _damage_script65
+_damage_script65:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $65
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret
+.globl _damage_observer66
+_damage_observer66:
+ pushl $66
+ jmp _damage_observer_common
+.globl _damage_script66
+_damage_script66:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $66
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret $12
+.globl _damage_observer67
+_damage_observer67:
+ pushl $67
+ jmp _damage_observer_common
+.globl _damage_script67
+_damage_script67:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $67
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret $12
+.globl _damage_observer68
+_damage_observer68:
+ pushl $68
+ jmp _damage_observer_common
+.globl _damage_script68
+_damage_script68:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $68
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret $12
+.globl _damage_observer69
+_damage_observer69:
+ pushl $69
+ jmp _damage_observer_common
+.globl _damage_script69
+_damage_script69:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $69
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret $4
+.globl _damage_observer70
+_damage_observer70:
+ pushl $70
+ jmp _damage_observer_common
+.globl _damage_script70
+_damage_script70:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $70
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret $4
+.globl _damage_observer71
+_damage_observer71:
+ pushl $71
+ jmp _damage_observer_common
+.globl _damage_script71
+_damage_script71:
+ leal 4(%esp),%eax
+ pushl %eax
+ pushl %ecx
+ pushl $71
+ call _damage_script_dispatch
+ addl $12,%esp
+ ret $4
 .globl _damage_entry
 _damage_entry:
  pushl $-1

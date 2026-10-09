@@ -128,3 +128,55 @@ _damage_invoke:
  popl %ebx
  popl %ebp
  ret
+
+.globl _damage_ai_guard_probe
+_damage_ai_guard_probe:
+ pushl %ebp
+ movl %esp,%ebp
+ movl 28(%ebp),%edx
+ fxsave (%edx)
+ fnstenv 512(%edx)
+ fxrstor (%edx)
+ fldenv 512(%edx)
+ pushl 24(%ebp)
+ pushl 20(%ebp)
+ pushl 16(%ebp)
+ pushl 12(%ebp)
+ pushl 8(%ebp)
+ call _damage_ai_guard_check
+ addl $20,%esp
+ movzbl %al,%eax
+ movl 28(%ebp),%edx
+ movl %eax,1088(%edx)
+ fxsave 544(%edx)
+ fnstenv 1056(%edx)
+ fxrstor 544(%edx)
+ fldenv 1056(%edx)
+ popl %ebp
+ ret
+
+.globl _damage_continuation_guard_probe
+_damage_continuation_guard_probe:
+ pushl %ebp
+ movl %esp,%ebp
+ movl 28(%ebp),%edx
+ fxsave (%edx)
+ fnstenv 512(%edx)
+ fxrstor (%edx)
+ fldenv 512(%edx)
+ pushl 24(%ebp)
+ pushl 20(%ebp)
+ pushl 16(%ebp)
+ pushl 12(%ebp)
+ pushl 8(%ebp)
+ call _damage_continuation_guard_check
+ addl $20,%esp
+ movzbl %al,%eax
+ movl 28(%ebp),%edx
+ movl %eax,1088(%edx)
+ fxsave 544(%edx)
+ fnstenv 1056(%edx)
+ fxrstor 544(%edx)
+ fldenv 1056(%edx)
+ popl %ebp
+ ret

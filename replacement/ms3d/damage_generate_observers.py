@@ -2,7 +2,10 @@
 import json
 from pathlib import Path
 p=Path(__file__).resolve().parent
-m=json.loads((p.parent.parent/'specs/gameplay/GAME-0002-observer-metadata.json').read_text())
+old=json.loads((p.parent.parent/'specs/gameplay/GAME-0002-observer-metadata.json').read_text())
+m=json.loads((p.parent.parent/'specs/gameplay/GAME-0003-observer-metadata.json').read_text())
+assert m['calls'][:len(old['calls'])]==old['calls']
+assert len(m['calls'])==len(old['calls'])+9
 assert m['status']=='APPROVED_OBSERVER_ONLY'
 rows=[]
 assembly=['.text']
@@ -19,6 +22,7 @@ for i,c in enumerate(m['calls']):
     assembly+=['.globl _damage_observer%d'%i,'_damage_observer%d:'%i,' pushl $%d'%i,' jmp _damage_observer_common']
     assembly+=['.globl _damage_script%d'%i,'_damage_script%d:'%i,' leal 4(%esp),%eax',' pushl %eax',' pushl %ecx',' pushl $%d'%i,' call _damage_script_dispatch',' addl $12,%esp',' ret'+(' $%d'%(n*4) if abi.startswith('thiscall') and n else '')]
 header='#pragma once\nstruct DamageSite {uint32_t call,returned,target;const char *name;unsigned id,count;unsigned pointers[4];bool scalar,body;};\ninline constexpr DamageSite damageSites[]={\n'+'\n'.join(rows)+'\n};\n'
+header+='inline constexpr unsigned damageLegacySiteCount=%d;\n'%len(old['calls'])
 header+='extern "C" {\n'+''.join('void damage_observer%d();\n'%i for i in range(len(rows)))+'}\ninline void *damageWrappers[]={'+','.join('reinterpret_cast<void*>(&damage_observer%d)'%i for i in range(len(rows)))+'};\n'
 header+='extern "C" {\n'+''.join('void damage_script%d();\n'%i for i in range(len(rows)))+'}\ninline void *damageScripts[]={'+','.join('reinterpret_cast<void*>(&damage_script%d)'%i for i in range(len(rows)))+'};\n'
 (p/'damage_observer_metadata.hpp').write_text(header)
@@ -34,3 +38,10 @@ for line in assembly:
     if line==' fnstenv 512(%esp)':
         lines.extend([' fninit',' movl $0x1f80,544(%esp)',' ldmxcsr 544(%esp)'])
 (p/'damage_observers.S').write_text('\n'.join(lines)+'\n')
+
+classifier=m['capture']['actualStart']
+assert classifier['status']=='APPROVED_CONFIRMED'
+rows=[]
+for t in classifier['types']:
+    rows.append('{%du,{%s},{%s}}'%(t['type'],','.join(t['orderedNewCalls']),','.join(str(x) for x in t['states'])))
+(p/'ai_observer_metadata.hpp').write_text('#pragma once\nstruct AiStartType {unsigned type;uint32_t calls[3],states[2];};\ninline constexpr AiStartType aiStartTypes[]={'+','.join(rows)+'};\ninline constexpr uint32_t aiCommittedTypeRva='+classifier['committedTypeRva']+';\ninline constexpr uint32_t aiAttackRva='+classifier['attackRva']+';\ninline constexpr uint32_t aiPlayerPendingRva='+classifier['playerPendingRva']+';\n')

@@ -1,0 +1,879 @@
+{
+  "evidence": "SameoriginalSHA77F9/ready223f6acf; originalrenderer437110 exact7standcalls/owner/literal extractedprivateoriginaldisasm from85e2671f andretainedverifiedtarget; GAME0004currentoriginalcaller/player/timerwhole verified2026-10-09. No copiedcode supplied.",
+  "scope": "Transparent opt-in original selector observations for opponent variants1..7 only. NO replacement admission/lifetime broadening, no new behavior core, no copied implementation or midbody hook.",
+  "roles": [
+    {
+      "ownerRva": "0x17d358",
+      "literalRva": "0x163c54",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x373df",
+      "returnRva": "0x373e4",
+      "type": 1.0,
+      "modelRva": "0x17d5dc",
+      "state": 3,
+      "variant": 1,
+      "requestedName": "LEGS_LEFTHEAD"
+    },
+    {
+      "ownerRva": "0x17d358",
+      "literalRva": "0x163c40",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37400",
+      "returnRva": "0x37405",
+      "type": 1.0,
+      "modelRva": "0x17d5dc",
+      "state": 4,
+      "variant": 1,
+      "requestedName": "LEGS_RIGHTHEAD"
+    },
+    {
+      "ownerRva": "0x17d358",
+      "literalRva": "0x163c30",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37421",
+      "returnRva": "0x37426",
+      "type": 2.0,
+      "modelRva": "0x17d5dc",
+      "state": 5,
+      "variant": 1,
+      "requestedName": "LEGS_LEFTTORS"
+    },
+    {
+      "ownerRva": "0x17d358",
+      "literalRva": "0x163c1c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37442",
+      "returnRva": "0x37447",
+      "type": 2.0,
+      "modelRva": "0x17d5dc",
+      "state": 6,
+      "variant": 1,
+      "requestedName": "LEGS_RIGHTTORS"
+    },
+    {
+      "ownerRva": "0x17d358",
+      "literalRva": "0x163c0c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37463",
+      "returnRva": "0x37468",
+      "type": 3.0,
+      "modelRva": "0x17d5dc",
+      "state": 7,
+      "variant": 1,
+      "requestedName": "LEGS_LEFTBOK"
+    },
+    {
+      "ownerRva": "0x17d358",
+      "literalRva": "0x163bfc",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37484",
+      "returnRva": "0x37489",
+      "type": 3.0,
+      "modelRva": "0x17d5dc",
+      "state": 8,
+      "variant": 1,
+      "requestedName": "LEGS_RIGHTBOK"
+    },
+    {
+      "ownerRva": "0x17b618",
+      "literalRva": "0x163c54",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x375a2",
+      "returnRva": "0x375a7",
+      "type": 1.0,
+      "modelRva": "0x17b89c",
+      "state": 3,
+      "variant": 2,
+      "requestedName": "LEGS_LEFTHEAD"
+    },
+    {
+      "ownerRva": "0x17b618",
+      "literalRva": "0x163c40",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x375c3",
+      "returnRva": "0x375c8",
+      "type": 1.0,
+      "modelRva": "0x17b89c",
+      "state": 4,
+      "variant": 2,
+      "requestedName": "LEGS_RIGHTHEAD"
+    },
+    {
+      "ownerRva": "0x17b618",
+      "literalRva": "0x163c30",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x375e4",
+      "returnRva": "0x375e9",
+      "type": 2.0,
+      "modelRva": "0x17b89c",
+      "state": 5,
+      "variant": 2,
+      "requestedName": "LEGS_LEFTTORS"
+    },
+    {
+      "ownerRva": "0x17b618",
+      "literalRva": "0x163c1c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37605",
+      "returnRva": "0x3760a",
+      "type": 2.0,
+      "modelRva": "0x17b89c",
+      "state": 6,
+      "variant": 2,
+      "requestedName": "LEGS_RIGHTTORS"
+    },
+    {
+      "ownerRva": "0x17b618",
+      "literalRva": "0x163c0c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37626",
+      "returnRva": "0x3762b",
+      "type": 3.0,
+      "modelRva": "0x17b89c",
+      "state": 7,
+      "variant": 2,
+      "requestedName": "LEGS_LEFTBOK"
+    },
+    {
+      "ownerRva": "0x17b618",
+      "literalRva": "0x163bfc",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37647",
+      "returnRva": "0x3764c",
+      "type": 3.0,
+      "modelRva": "0x17b89c",
+      "state": 8,
+      "variant": 2,
+      "requestedName": "LEGS_RIGHTBOK"
+    },
+    {
+      "ownerRva": "0x181a80",
+      "literalRva": "0x163c54",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37765",
+      "returnRva": "0x3776a",
+      "type": 1.0,
+      "modelRva": "0x181d04",
+      "state": 3,
+      "variant": 3,
+      "requestedName": "LEGS_LEFTHEAD"
+    },
+    {
+      "ownerRva": "0x181a80",
+      "literalRva": "0x163c40",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37786",
+      "returnRva": "0x3778b",
+      "type": 1.0,
+      "modelRva": "0x181d04",
+      "state": 4,
+      "variant": 3,
+      "requestedName": "LEGS_RIGHTHEAD"
+    },
+    {
+      "ownerRva": "0x181a80",
+      "literalRva": "0x163c30",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x377a7",
+      "returnRva": "0x377ac",
+      "type": 2.0,
+      "modelRva": "0x181d04",
+      "state": 5,
+      "variant": 3,
+      "requestedName": "LEGS_LEFTTORS"
+    },
+    {
+      "ownerRva": "0x181a80",
+      "literalRva": "0x163c1c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x377c8",
+      "returnRva": "0x377cd",
+      "type": 2.0,
+      "modelRva": "0x181d04",
+      "state": 6,
+      "variant": 3,
+      "requestedName": "LEGS_RIGHTTORS"
+    },
+    {
+      "ownerRva": "0x181a80",
+      "literalRva": "0x163c0c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x377e9",
+      "returnRva": "0x377ee",
+      "type": 3.0,
+      "modelRva": "0x181d04",
+      "state": 7,
+      "variant": 3,
+      "requestedName": "LEGS_LEFTBOK"
+    },
+    {
+      "ownerRva": "0x181a80",
+      "literalRva": "0x163bfc",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x3780a",
+      "returnRva": "0x3780f",
+      "type": 3.0,
+      "modelRva": "0x181d04",
+      "state": 8,
+      "variant": 3,
+      "requestedName": "LEGS_RIGHTBOK"
+    },
+    {
+      "ownerRva": "0x1814d8",
+      "literalRva": "0x163c54",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37928",
+      "returnRva": "0x3792d",
+      "type": 1.0,
+      "modelRva": "0x18175c",
+      "state": 3,
+      "variant": 4,
+      "requestedName": "LEGS_LEFTHEAD"
+    },
+    {
+      "ownerRva": "0x1814d8",
+      "literalRva": "0x163c40",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37949",
+      "returnRva": "0x3794e",
+      "type": 1.0,
+      "modelRva": "0x18175c",
+      "state": 4,
+      "variant": 4,
+      "requestedName": "LEGS_RIGHTHEAD"
+    },
+    {
+      "ownerRva": "0x1814d8",
+      "literalRva": "0x163c30",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x3796a",
+      "returnRva": "0x3796f",
+      "type": 2.0,
+      "modelRva": "0x18175c",
+      "state": 5,
+      "variant": 4,
+      "requestedName": "LEGS_LEFTTORS"
+    },
+    {
+      "ownerRva": "0x1814d8",
+      "literalRva": "0x163c1c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x3798b",
+      "returnRva": "0x37990",
+      "type": 2.0,
+      "modelRva": "0x18175c",
+      "state": 6,
+      "variant": 4,
+      "requestedName": "LEGS_RIGHTTORS"
+    },
+    {
+      "ownerRva": "0x1814d8",
+      "literalRva": "0x163c0c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x379ac",
+      "returnRva": "0x379b1",
+      "type": 3.0,
+      "modelRva": "0x18175c",
+      "state": 7,
+      "variant": 4,
+      "requestedName": "LEGS_LEFTBOK"
+    },
+    {
+      "ownerRva": "0x1814d8",
+      "literalRva": "0x163bfc",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x379cd",
+      "returnRva": "0x379d2",
+      "type": 3.0,
+      "modelRva": "0x18175c",
+      "state": 8,
+      "variant": 4,
+      "requestedName": "LEGS_RIGHTBOK"
+    },
+    {
+      "ownerRva": "0x175658",
+      "literalRva": "0x163c54",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37aeb",
+      "returnRva": "0x37af0",
+      "type": 1.0,
+      "modelRva": "0x1758dc",
+      "state": 3,
+      "variant": 5,
+      "requestedName": "LEGS_LEFTHEAD"
+    },
+    {
+      "ownerRva": "0x175658",
+      "literalRva": "0x163c40",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37b0c",
+      "returnRva": "0x37b11",
+      "type": 1.0,
+      "modelRva": "0x1758dc",
+      "state": 4,
+      "variant": 5,
+      "requestedName": "LEGS_RIGHTHEAD"
+    },
+    {
+      "ownerRva": "0x175658",
+      "literalRva": "0x163c30",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37b2d",
+      "returnRva": "0x37b32",
+      "type": 2.0,
+      "modelRva": "0x1758dc",
+      "state": 5,
+      "variant": 5,
+      "requestedName": "LEGS_LEFTTORS"
+    },
+    {
+      "ownerRva": "0x175658",
+      "literalRva": "0x163c1c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37b4e",
+      "returnRva": "0x37b53",
+      "type": 2.0,
+      "modelRva": "0x1758dc",
+      "state": 6,
+      "variant": 5,
+      "requestedName": "LEGS_RIGHTTORS"
+    },
+    {
+      "ownerRva": "0x175658",
+      "literalRva": "0x163c0c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37b6f",
+      "returnRva": "0x37b74",
+      "type": 3.0,
+      "modelRva": "0x1758dc",
+      "state": 7,
+      "variant": 5,
+      "requestedName": "LEGS_LEFTBOK"
+    },
+    {
+      "ownerRva": "0x175658",
+      "literalRva": "0x163bfc",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37b90",
+      "returnRva": "0x37b95",
+      "type": 3.0,
+      "modelRva": "0x1758dc",
+      "state": 8,
+      "variant": 5,
+      "requestedName": "LEGS_RIGHTBOK"
+    },
+    {
+      "ownerRva": "0x175088",
+      "literalRva": "0x163c54",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37cae",
+      "returnRva": "0x37cb3",
+      "type": 1.0,
+      "modelRva": "0x17530c",
+      "state": 3,
+      "variant": 6,
+      "requestedName": "LEGS_LEFTHEAD"
+    },
+    {
+      "ownerRva": "0x175088",
+      "literalRva": "0x163c40",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37ccf",
+      "returnRva": "0x37cd4",
+      "type": 1.0,
+      "modelRva": "0x17530c",
+      "state": 4,
+      "variant": 6,
+      "requestedName": "LEGS_RIGHTHEAD"
+    },
+    {
+      "ownerRva": "0x175088",
+      "literalRva": "0x163c30",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37cf0",
+      "returnRva": "0x37cf5",
+      "type": 2.0,
+      "modelRva": "0x17530c",
+      "state": 5,
+      "variant": 6,
+      "requestedName": "LEGS_LEFTTORS"
+    },
+    {
+      "ownerRva": "0x175088",
+      "literalRva": "0x163c1c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37d11",
+      "returnRva": "0x37d16",
+      "type": 2.0,
+      "modelRva": "0x17530c",
+      "state": 6,
+      "variant": 6,
+      "requestedName": "LEGS_RIGHTTORS"
+    },
+    {
+      "ownerRva": "0x175088",
+      "literalRva": "0x163c0c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37d32",
+      "returnRva": "0x37d37",
+      "type": 3.0,
+      "modelRva": "0x17530c",
+      "state": 7,
+      "variant": 6,
+      "requestedName": "LEGS_LEFTBOK"
+    },
+    {
+      "ownerRva": "0x175088",
+      "literalRva": "0x163bfc",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37d53",
+      "returnRva": "0x37d58",
+      "type": 3.0,
+      "modelRva": "0x17530c",
+      "state": 8,
+      "variant": 6,
+      "requestedName": "LEGS_RIGHTBOK"
+    },
+    {
+      "ownerRva": "0x176378",
+      "literalRva": "0x163c54",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37e71",
+      "returnRva": "0x37e76",
+      "type": 1.0,
+      "modelRva": "0x1765fc",
+      "state": 3,
+      "variant": 7,
+      "requestedName": "LEGS_LEFTHEAD"
+    },
+    {
+      "ownerRva": "0x176378",
+      "literalRva": "0x163c40",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37e92",
+      "returnRva": "0x37e97",
+      "type": 1.0,
+      "modelRva": "0x1765fc",
+      "state": 4,
+      "variant": 7,
+      "requestedName": "LEGS_RIGHTHEAD"
+    },
+    {
+      "ownerRva": "0x176378",
+      "literalRva": "0x163c30",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37eb3",
+      "returnRva": "0x37eb8",
+      "type": 2.0,
+      "modelRva": "0x1765fc",
+      "state": 5,
+      "variant": 7,
+      "requestedName": "LEGS_LEFTTORS"
+    },
+    {
+      "ownerRva": "0x176378",
+      "literalRva": "0x163c1c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37ed4",
+      "returnRva": "0x37ed9",
+      "type": 2.0,
+      "modelRva": "0x1765fc",
+      "state": 6,
+      "variant": 7,
+      "requestedName": "LEGS_RIGHTTORS"
+    },
+    {
+      "ownerRva": "0x176378",
+      "literalRva": "0x163c0c",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37ef5",
+      "returnRva": "0x37efa",
+      "type": 3.0,
+      "modelRva": "0x1765fc",
+      "state": 7,
+      "variant": 7,
+      "requestedName": "LEGS_LEFTBOK"
+    },
+    {
+      "ownerRva": "0x176378",
+      "literalRva": "0x163bfc",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "length": 5,
+        "kind": "direct_CALL"
+      },
+      "callRva": "0x37f16",
+      "returnRva": "0x37f1b",
+      "type": 3.0,
+      "modelRva": "0x1765fc",
+      "state": 8,
+      "variant": 7,
+      "requestedName": "LEGS_RIGHTBOK"
+    },
+    {
+      "requestedName": "LEGS_STAND",
+      "returnRva": "0x37381",
+      "callRva": "0x3737c",
+      "modelRva": "0x17d5dc",
+      "ownerRva": "0x17d358",
+      "variant": 1,
+      "state": 0,
+      "literalRva": "0x1623e8",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "kind": "direct_CALL",
+        "length": 5
+      },
+      "type": 0
+    },
+    {
+      "requestedName": "LEGS_STAND",
+      "returnRva": "0x37544",
+      "callRva": "0x3753f",
+      "modelRva": "0x17b89c",
+      "ownerRva": "0x17b618",
+      "variant": 2,
+      "state": 0,
+      "literalRva": "0x1623e8",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "kind": "direct_CALL",
+        "length": 5
+      },
+      "type": 0
+    },
+    {
+      "requestedName": "LEGS_STAND",
+      "returnRva": "0x37707",
+      "callRva": "0x37702",
+      "modelRva": "0x181d04",
+      "ownerRva": "0x181a80",
+      "variant": 3,
+      "state": 0,
+      "literalRva": "0x1623e8",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "kind": "direct_CALL",
+        "length": 5
+      },
+      "type": 0
+    },
+    {
+      "requestedName": "LEGS_STAND",
+      "returnRva": "0x378ca",
+      "callRva": "0x378c5",
+      "modelRva": "0x18175c",
+      "ownerRva": "0x1814d8",
+      "variant": 4,
+      "state": 0,
+      "literalRva": "0x1623e8",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "kind": "direct_CALL",
+        "length": 5
+      },
+      "type": 0
+    },
+    {
+      "requestedName": "LEGS_STAND",
+      "returnRva": "0x37a8d",
+      "callRva": "0x37a88",
+      "modelRva": "0x1758dc",
+      "ownerRva": "0x175658",
+      "variant": 5,
+      "state": 0,
+      "literalRva": "0x1623e8",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "kind": "direct_CALL",
+        "length": 5
+      },
+      "type": 0
+    },
+    {
+      "requestedName": "LEGS_STAND",
+      "returnRva": "0x37c50",
+      "callRva": "0x37c4b",
+      "modelRva": "0x17530c",
+      "ownerRva": "0x175088",
+      "variant": 6,
+      "state": 0,
+      "literalRva": "0x1623e8",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "kind": "direct_CALL",
+        "length": 5
+      },
+      "type": 0
+    },
+    {
+      "requestedName": "LEGS_STAND",
+      "returnRva": "0x37e13",
+      "callRva": "0x37e0e",
+      "modelRva": "0x1765fc",
+      "ownerRva": "0x176378",
+      "variant": 7,
+      "state": 0,
+      "literalRva": "0x1623e8",
+      "instruction": {
+        "targetRva": "0x1c26",
+        "kind": "direct_CALL",
+        "length": 5
+      },
+      "type": 0
+    }
+  ],
+  "id": "GAME-0004-animation-observer",
+  "enable": "ExplicitAI_CAPTURE1 ANDAI_CONTINUATION_CAPTURE1 ownedcapture only, <=12selectorcaptures, actualcausalwholeexit; continuationflagabsent/0 preservesGAME0003observerexactly. Candidate requiresAI_CONTINUATION_MODEreplace plusAI_MODEreplace/Damagefalse/Cliporiginal. Foreignselector remainsoriginalonce.",
+  "originalSha256": "77F9AC7B4C4517F7D1776D7C2AFDAC19440169977BDC5393F58A1A0FBB7BD7D6",
+  "abi": {
+    "ecx": "ownerO",
+    "kind": "x86_thiscall",
+    "modelOwnerOffset": 644,
+    "stack": [
+      "original_requestedName_pointer"
+    ],
+    "return": "fulluint32EAX",
+    "calleeSaved": [
+      "EBX",
+      "ESI",
+      "EDI",
+      "EBP"
+    ],
+    "originalForward": "Preserved whole original body6E40 exactly once with original ECX and exact namepointer; bypass observer/replacement thunk to avoid recursive hook. Foreign owners never execute replacement. Unmatched/unsafe capture entries forward original once transparently without reads or writes.",
+    "cleanup": 4
+  },
+  "dispatch": {
+    "rendererRva": "0x37110",
+    "variantRva": "0x184788",
+    "desiredStateRva": "0x184a9c",
+    "rememberedStateRva": "0x184a98",
+    "actorIndex": 1,
+    "parentState": "Renderer loopsj0..1, comparesremembered vsdesired, storesdesiredtoremembered BEFORE independent state tests. At admitted entry both desired/remembered mustequalrole.state and variantmatchesrole.variant. Owner/site alone could be actor0 using samevariant, so verify parentframe loopindex1 safely or correlate both actorstates+variant and unambiguous thread/frame event; absent index/frameproof classify actoridentity UNKNOWN/BLOCKED, not opponent PASS.",
+    "actorBytes": 232,
+    "parentLoopIndexEbpOffset": "-0x18",
+    "actorRva": "0x1849f8",
+    "rememberedWriteRva": "0x37186"
+  },
+  "unknowns": "Native model lifetime/source linkage and downstream frames until actualcapture; compiler identity. All foreignvariantselector calls remain original. No publication/runtimePASS granted.",
+  "status": "APPROVED_OBSERVER_ONLY",
+  "capture": {
+    "correlation": "ActualGAME0004whole completionAIattack0/timer0/state0/currenttypepreserved =>originalj1idle selector LEGS_STAND withexactparentj1/caller/owner/literal/variant/model/timeproof. Continuedattackstate3..8 usesunchanged42roles onlywhenactualselectorcalloccurs; rendererdoesnotreselectunchangedrememberedstate. Do notfabricateper-tickselectorcall. Rawactor232causalcompareexceptapprovedrendererremembered+160store; samePID/thread/frame/order. No selectorreplacementbroadened.",
+    "equivalence": "Transparent capture must preserve/restorerawregisters including flags and entireFP before original invocation; after original preserve exact original return architecture, nonvolatiles and ret4. Any capture mutation FAIL. No FX/FN save normalization, no emptytag/stalefield blanket waiver. Own selector has no FP math, dependencies effects remain exact.",
+    "exit": [
+      "fullEAX/registers/stackdelta/fullFP",
+      "postmodel112/collectionpointerandboundedrecords",
+      "selectedindex/frame/factor/anchor/rawtime",
+      "postdesired/remembered/variant",
+      "originalForwardCount1 and originalbodyidentity"
+    ],
+    "safety": "Root preverify exact callerreturn/namepointer/literalbytes/owner/variant/state mapping. Read model112 only if entire span readable. Bound count1..256 and end>=begin, capacity>=end, spans aligned stride272, count<=available, eachrecord readable; requested bytes terminated<=256; bounded names terminated<=256. Unsafe observation shape means no snapshot/transparentoriginalforward, never replacement/fake lifetime. Existing owner0 witness does NOT certify other owners. Record actual collection/source values as original observations.",
+    "matching": "requestedpointer==modulebase+role.literalRva and literalbytesmatch; callerreturn==modulebase+role.returnRva; ECX==modulebase+role.ownerRva; currentvariant=role.variant; parentj1; desired/remembered=role.state. No guessed name matching or owneroffset alternative.",
+    "entry": [
+      "sequence/thread/process/side/modulebase/hash",
+      "originalthunk/bodytargetproof",
+      "rawECXowner/rawrequestedpointer/rawcallerreturn and normalized roles",
+      "verifiedparentframe/j1",
+      "desired/remembered/variant/rawAIactor232 and latestGAME0003wholeexitsequence",
+      "model112bytes",
+      "boundedcollectionrecords/selectedrecord/name/start",
+      "rawcurrenttime",
+      "fullregisters/stackpointer/x87CW/fullSW/TOP/full+abridgedtags/raw80/MXCSR/XMM"
+    ]
+  },
+  "imageBase": "0x400000",
+  "hook": {
+    "thunkSpan": 5,
+    "thunkRva": "0x1c26",
+    "bodyRva": "0x6e40",
+    "kind": "Existing complete selector thunk only. Root preverify original nearJMP target6E40/hash before metadata install; no new renderer/body patch."
+  },
+  "model": {
+    "recordNameOffset": 0,
+    "recordStartOffset": 256,
+    "bytes": 112,
+    "beginOffset": 88,
+    "recordStride": 272,
+    "countOffset": 40,
+    "anchorOffset": 80,
+    "frameOffset": 48,
+    "recordNameMax": 256,
+    "endOffset": 92,
+    "factorOffset": 76,
+    "typedAuthority": "../animation/ANIM-0002-name-selection.md",
+    "currentTimeRva": "0x17d904",
+    "selectedIndexOffset": 44,
+    "capacityOffset": 96,
+    "collectionOffset": 84
+  },
+  "confidence": "CONFIRMED static ABI/role/site/layout; native actual dispatch and lifetime UNKNOWN until capture",
+  "authority": [
+    "GAME-0004-opponent-single-attack-continuation.md",
+    "../animation/ANIM-0002-name-selection.md"
+  ],
+  "stablePrefix": "Existing42attackroles preservedexactlyinorder; append7idlestate0roles only; previousselectorreplacementactivation unchanged."
+}

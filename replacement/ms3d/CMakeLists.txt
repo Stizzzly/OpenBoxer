@@ -16,10 +16,10 @@ add_test(NAME x86_toolchain COMMAND ms3d_toolchain_probe)
 add_executable(ms3d_launcher launcher.cpp)
 add_library(ms3d_replacement SHARED dll.cpp loader.cpp world.cpp world_runtime.cpp world_fixtures.cpp world_abi.S texture.cpp texture_runtime.cpp texture_fixtures.cpp texture_abi.S upload.cpp upload_runtime.cpp upload_fixtures.cpp upload_abi.S lighting.cpp lighting_runtime.cpp lighting_fixtures.cpp lighting_color.S selection.cpp selection_runtime.cpp selection_fixtures.cpp selection_fp.S draw.cpp draw_runtime.cpp draw_fixtures.cpp draw_trace.cpp draw_abi.S ${CHARACTER_SOURCES} ${ANIMATION_SOURCES} ${CLIP_SOURCES} ${FRAMES_SOURCES} ${STRIKE_SOURCES})
 target_link_libraries(ms3d_replacement PRIVATE advapi32 psapi)
-target_sources(ms3d_replacement PRIVATE damage.cpp damage_guard.cpp damage_runtime.cpp damage_abi.S damage_observer.cpp damage_observers.S damage_fixtures.cpp damage_replay.cpp)
+target_sources(ms3d_replacement PRIVATE continuation_fixtures.cpp continuation_replay.cpp ai_animation_observer.cpp ai_animation_observer.S ai_fixtures.cpp ai_replay.cpp damage.cpp damage_guard.cpp damage_runtime.cpp damage_abi.S damage_observer.cpp damage_observers.S damage_fixtures.cpp damage_replay.cpp)
 # GAME-0002 owns x87 arithmetic only. Compiler-generated SSE copies/zeroing
 # must not introduce unrecorded XMM effects around preserved dependencies.
-set_source_files_properties(damage.cpp damage_guard.cpp damage_runtime.cpp damage_fixtures.cpp damage_replay.cpp damage_observer.cpp PROPERTIES COMPILE_OPTIONS "-mno-sse;-mno-sse2;-fno-vectorize;-fno-slp-vectorize")
+set_source_files_properties(continuation_replay.cpp continuation_fixtures.cpp ai_replay.cpp ai_fixtures.cpp damage.cpp damage_guard.cpp damage_runtime.cpp damage_fixtures.cpp damage_replay.cpp damage_observer.cpp PROPERTIES COMPILE_OPTIONS "-mno-sse;-mno-sse2;-fno-vectorize;-fno-slp-vectorize")
 add_executable(damage_core_tests damage_core_tests.cpp damage.cpp)
 target_compile_options(damage_core_tests PRIVATE -fno-fast-math -msse2)
 add_test(NAME damage_delayed_hit_boundary_and_pool COMMAND damage_core_tests)
@@ -69,3 +69,23 @@ add_executable(action_loader_tests action_tests.cpp clip.cpp clip_fixtures.cpp c
 target_compile_options(action_loader_tests PRIVATE -fno-fast-math -msse2)
 add_test(NAME action_route_identity_and_real_names COMMAND action_loader_tests)
 
+
+add_executable(ai_animation_observer_tests ai_animation_observer_tests.cpp ai_animation_observer.S damage_observer_test_abi.S)
+add_test(NAME ai_selector_transparent_original_ret4_full_fp COMMAND ai_animation_observer_tests)
+
+add_executable(ai_attack_tests ai_attack_tests.cpp damage.cpp)
+target_compile_options(ai_attack_tests PRIVATE -fno-fast-math -msse2)
+add_test(NAME ai_first_entry_attack_state_rng_timer_signed_count COMMAND ai_attack_tests)
+
+add_executable(ai_capture_policy_tests ai_capture_policy_tests.cpp)
+add_test(NAME ai_explicit_side_configuration_rejected_before_hooks COMMAND ai_capture_policy_tests)
+
+add_executable(launcher_worker_delay_tests launcher_worker_delay_tests.cpp)
+add_test(NAME launcher_worker_delay_default_zero_bounded2000 COMMAND launcher_worker_delay_tests)
+
+add_executable(continuation_core_tests continuation_core_tests.cpp damage.cpp)
+target_compile_options(continuation_core_tests PRIVATE -fno-fast-math -msse2)
+add_test(NAME ai_continuation_lifecycle_equality_completion_fatigue COMMAND continuation_core_tests)
+
+add_executable(launcher_preinject_delay_tests launcher_preinject_delay_tests.cpp)
+add_test(NAME launcher_preinject_delay_default_zero_bounded15000 COMMAND launcher_preinject_delay_tests)

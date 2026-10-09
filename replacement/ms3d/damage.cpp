@@ -17,7 +17,7 @@ void zeroY(State&s,uint32_t site,void*v){put(element(s,site,v,1),0);}
 bool lt(State&s,uint32_t rva,uint32_t rhs){return fp::less(fp::compare(read(s,rva),rhs));}
 bool gt(State&s,uint32_t rva,uint32_t rhs){return fp::greater(fp::compare(read(s,rva),rhs));}
 }
-uint32_t update(State&s,int32_t mode){
+uint32_t update(State&s,int32_t mode,bool aiInitiation,bool aiContinuation){
     // Own CRT copies/zeroing may use SSE even when compiler SSE is disabled.
     // Track the exact incoming/last opaque XMM effect and restore it at each
     // dependency boundary and after all own temporaries have been destroyed.
@@ -25,8 +25,8 @@ uint32_t update(State&s,int32_t mode){
     auto *a=s.actor();
     // All distinct locals persist through the whole invocation, including loop
     // output reuse and opaque fourth words. No per-event re-poisoning occurs.
-    std::array<Vector,15> locals;for(auto&v:locals)v.fill(0xcccccccc);
-    enum {PosPlayer,PosOpponent,Neg,MoveForward,MoveRetreat,Hit,HitPosition,PoolVelocity,PoolCopy,TailPosition,Zero,TailVelocity,Add,SpeedMultiply,Limit};
+    std::array<Vector,18> locals;for(auto&v:locals)v.fill(0xcccccccc);
+    enum {PosPlayer,PosOpponent,Neg,MoveForward,MoveRetreat,Hit,HitPosition,PoolVelocity,PoolCopy,TailPosition,Zero,TailVelocity,Add,SpeedMultiply,Limit,StartZ,StartX,StartC};
     uint32_t audio=0xcccccccc;
     for(unsigned i=0;i<5;++i){const unsigned offsets[]={180,184,188,192,196};const unsigned clear[]={177,176,178};const unsigned off=offsets[i];if(fp::less(fp::compare(word(a+off),0))){if(i<3)a[clear[i]]=0;}else put(a+off,fp::decrement(word(a+off),read(s,0x176370)));}
     int32_t difficulty;
@@ -54,7 +54,21 @@ uint32_t update(State&s,int32_t mode){
     }else{construct(s,0x1cbad,a+76,0,0,0);invoke(s,0x1cbb8,Callback::Clear,a+124);if(word(a+164)==1 || word(a+164)==2)put(a+164,0);}
     if(fp::less(fp::compare(word(a+192),0x3f800000))){a[204]=1;put(a+200,0);unsigned site=difficulty==1?0x1cc19:(difficulty<=3?0x1cc3e:0x1cc67);r=invoke(s,site,Callback::Rand,nullptr,{},true);const int32_t divisor=difficulty==1?3:(difficulty<=3?4:5);put(a+224,uint32_t(int32_t(r.eax)%divisor+1));}
     const uint32_t upper[]={0x40800000,0x40a00000,0x40c00000};
-    for(int32_t type=1;type<=3;++type){if(read(s,0x177f90)!=0)continue;if(fp::less(fp::compare(read(s,0x1761d4),0)))continue;if(byte(s,0x17622d) || byte(s,0x17622e) || byte(s,0x17622c) || byte(s,0x176256) || byte(s,0x176234) || !a[204] || int32_t(word(a+216))!=type)continue;if(!gt(s,0x175eec,0x3f800000))continue;lt(s,0x175eec,upper[type-1]);/* admitted far miss cannot initiate */}
+    for(int32_t type=1;type<=3;++type){
+        if(read(s,0x177f90)!=0)continue;if(fp::less(fp::compare(read(s,0x1761d4),0)))continue;
+        if(byte(s,0x17622d) || byte(s,0x17622e) || byte(s,0x17622c) || byte(s,0x176256) || byte(s,0x176234) || !a[204] || int32_t(word(a+216))!=type)continue;
+        if(!gt(s,0x175eec,0x3f800000))continue;const bool below=lt(s,0x175eec,upper[type-1]);
+        // The prior GAME-0002 domain cannot initiate. New effects only belong
+        // to the separately admitted first-entry GAME-0003 route.
+        if(!aiInitiation || !below)continue;
+        write(s,0x17625c,uint32_t(type));const unsigned alternator=167+unsigned(type);put(a+164,uint32_t((type-1)*2+(a[alternator]?3:4)));a[alternator]=a[alternator]==0;
+        *s.global(0x17622d)=1;*s.global(0x1761c8)=1;put(a+200,word(a+200)+1);
+        const unsigned randomSites[]={0x1cdce,0x1d103,0x1d44c};r=invoke(s,randomSites[type-1],Callback::Rand,nullptr,{},true);put(a+216,uint32_t(int32_t(r.eax)%3+1));
+        const uint32_t cooldowns[]={0x41000000,0x40f00000,0x40e00000,0x40d00000,0x40c00000,0x40b00000,0x40a00000};const uint32_t variant=word(a+220);
+        if(int32_t(word(a+200))>=int32_t(word(a+224)))a[204]=0;
+        put(a+192,cooldowns[variant-1]);if(difficulty>1)put(a+192,fp::attackCooldown(word(a+192),difficulty));
+        const unsigned constructorSites[]={0x1cf9f,0x1d2e8,0x1d631},impulseSites[]={0x1cfb1,0x1d2fa,0x1d643};auto&local=locals[StartZ+type-1];construct(s,constructorSites[type-1],local.data(),0xc0400000,0,0);invoke(s,impulseSites[type-1],Callback::Impulse,body(s),{address(local.data())});
+    }
     // Both existing recoil byte tests have no admitted continuation.
     const uint8_t recoilFirst=byte(s,0x17622e),recoilSecond=byte(s,0x17622e);(void)recoilFirst;(void)recoilSecond;
     if(byte(s,0x17622c) && fp::less(fp::scaledCompare(read(s,0x1762a4+16*read(s,0x184784)),0x3f000000,read(s,0x1761cc)))){
@@ -79,9 +93,40 @@ uint32_t update(State&s,int32_t mode){
     if(byte(s,0x1761c9) && !byte(s,0x176234))*s.global(0x17628c)=0;
     if(choice!=0 && choice!=1 && choice!=2){a[171]=0;construct(s,0x1dc28,a+76,0,0,0);}
     // The four excluded AIattack arms read their governing byte independently.
-    for(unsigned i=0;i<4;++i){const auto attack=byte(s,0x17622d);(void)attack;}
+    if(aiInitiation || aiContinuation){
+        bool incremented=false;
+        if(byte(s,0x17622d) && !fp::greater(fp::compare(read(s,0x176230),read(s,0x1762a4+16*read(s,0x184788)))) && read(s,0x17625c)==1){write(s,0x176230,fp::multiplyAdd(0x3c23d70a,read(s,0x176370),read(s,0x176230)));incremented=true;}
+        if(!incremented && byte(s,0x17622d) && !fp::less(fp::scaledCompare(read(s,0x1762a4+16*read(s,0x184788)),0x3fa66666,read(s,0x176230))) && read(s,0x17625c)==2){write(s,0x176230,fp::multiplyAdd(0x3c23d70a,read(s,0x176370),read(s,0x176230)));incremented=true;}
+        if(!incremented && byte(s,0x17622d) && !fp::less(fp::scaledCompare(read(s,0x1762a4+16*read(s,0x184788)),0x3ff33333,read(s,0x176230))) && read(s,0x17625c)==3){write(s,0x176230,fp::multiplyAdd(0x3c23d70a,read(s,0x176370),read(s,0x176230)));incremented=true;}
+        // GAME-0003 cannot complete. GAME-0004 admits the complete lifecycle
+        // only after its independent entry guard, with stable opaque callbacks.
+        if(!incremented && byte(s,0x17622d) && aiContinuation){
+            *s.global(0x17622d)=0;
+            write(s,0x176230,0);
+            const uint32_t desiredState=word(a+164);
+            if(desiredState!=10 && desiredState!=12)put(a+164,0);
+
+            if(lt(s,0x176258,0x42c80000)){
+                // Fixed raw field aliases table record 1 +12. Its semantic
+                // meaning is UNKNOWN; it is never indexed by the opponent.
+                const uint32_t fixedCompletionField=read(s,0x1762bc);
+                const uint32_t liveFatigue=read(s,0x176258);
+                const uint32_t completedFatigue=fp::multiplyAdd(
+                    fixedCompletionField,0x3fc00000,liveFatigue);
+                write(s,0x176258,completedFatigue);
+            }
+        }
+    }else for(unsigned i=0;i<4;++i){const auto attack=byte(s,0x17622d);(void)attack;}
     if(gt(s,0x176258,0))write(s,0x176258,fp::subtractProduct(read(s,0x176258),0x3e19999a,read(s,0x176370)));
-    fp::compare(read(s,0x176258),0x42c60000);const auto lock=byte(s,0x176256);(void)lock;
+    const uint16_t fatigueStatus=fp::compare(read(s,0x176258),0x42c60000);
+    if(aiContinuation && !fp::less(fatigueStatus) && !byte(s,0x176256)){
+        // Completion addition precedes decay above; lock uses the result after
+        // decay, then clamps to 100 in this exact write order.
+        *s.global(0x176256)=1;
+        write(s,0x176258,0x42c80000);
+    }
+    const auto lock=byte(s,0x176256);
+    if(aiContinuation && lock)fp::compare(read(s,0x176258),0x42480000);
     fp::compare(read(s,0x176238),0);const auto victory=byte(s,0x176254),combo=byte(s,0x17626c);(void)victory;(void)combo;
     if(gt(s,0x176260,0x3f19999a)){*s.global(0x17626c)=0;write(s,0x176260,0);const int32_t count=int32_t(read(s,0x176270));const bool two=count==2,three=count==3,four=count>=4,more=count>1;(void)two;(void)three;(void)four;(void)more;write(s,0x176270,0);write(s,0x176288,15);}
     invoke(s,0x1e037,Callback::Cursor,a);

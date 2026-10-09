@@ -2,6 +2,17 @@
 #include "damage.hpp"
 #include <cstddef>
 namespace damage {
+bool continuationCaptureRequested();
+bool aiCaptureRequested();
+bool aiCaptureCandidateRequested();
+bool validateAiCaptureConfiguration();
+unsigned latestAiSequence();
+unsigned latestContinuationCompletionSequence();
+bool admittedContinuation(uintptr_t,void*,int32_t,uintptr_t,const char*&);
+void forceFixtureContinuationReplacement(bool);
+uint32_t continuationFixtures(uintptr_t);
+uint32_t continuationReplays(uintptr_t);
+bool admittedAi(uintptr_t,void*,int32_t,uintptr_t,const char*&);
 bool admitted(uintptr_t base,void *actor,int32_t mode,uintptr_t caller,const char *&reason);
 extern "C" void damage_bridge(uintptr_t,uint32_t,const uint32_t *,unsigned,unsigned,Result *,unsigned,const void *inputXmm=nullptr);
 class BinaryState:public State {
@@ -14,6 +25,9 @@ public:
 };
 bool install(uintptr_t base,const char *mode);
 uint32_t fixtures(uintptr_t base);
+uint32_t aiFixtures(uintptr_t base);
+uint32_t aiReplays(uintptr_t base);
+void forceFixtureAiReplacement(bool);
 uint32_t replays(uintptr_t base);
 void routeCounters(unsigned *,unsigned *);
 void forceFixtureReplacement(bool);
@@ -21,6 +35,8 @@ struct Witness {uint32_t beforeEsp,afterEsp,ebx,esi,edi,ebp,eax;alignas(16) std:
 extern "C" void damage_invoke(uintptr_t,void*,int32_t,Witness*,const void*entryFp=nullptr);
 struct GuardWitness {alignas(16) std::array<uint8_t,544> before{},after{};uint32_t supported=0;};
 extern "C" void damage_guard_probe(uintptr_t,void*,int32_t,uintptr_t,const char**,GuardWitness*);
+extern "C" void damage_continuation_guard_probe(uintptr_t,void*,int32_t,uintptr_t,const char**,GuardWitness*);
+extern "C" void damage_ai_guard_probe(uintptr_t,void*,int32_t,uintptr_t,const char**,GuardWitness*);
 static_assert(offsetof(Result,fp)==16,"bridge FP ABI");
 static_assert(offsetof(Witness,entryFp)==32 && offsetof(Witness,exitFp)==576,"raw invocation FP ABI");
 static_assert(offsetof(GuardWitness,after)==544 && offsetof(GuardWitness,supported)==1088,"guard probe ABI");

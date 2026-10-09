@@ -24,3 +24,12 @@ Final v6 source supersedes the unfinished checkpoint. The diagnostics-off audio 
 
 
 Final publication build: Release/i686 Clang, CTest 17/17 PASS. Publication lint: zero failures, 110 warnings (retained absolute lab paths and opaque callback labels; ignored build files also scanned). No original implementation or game assets are included.
+
+## GAME-0003 / GAME-0004 source publication — 2026-10-10
+
+Owner requested committing and pushing completed local work. Export includes independently written replacement/launcher source, approved behavioral metadata, specifications, research requests, written reports and checking tools. It excludes original game assets/binaries, raw native records, packed replay payloads, IDA/decompiler material, frozen build trees and executable outputs. JSON audit outputs remain local unless previously published; report paths to local evidence are intentionally preserved and disclosed. New source includes a separately audited launcher-only observation helper, which adds one offline test to the immutable gameplay candidate's22 tests; default ordinary launch delay remains zero. The final local delivered DLL and published rebuild are separate artifacts; immutable local hashes are not advertised as hashes of a fresh publication build.
+
+Publication is explicitly authorized in the current user message. Commit retains Co-authored-by: Codex <codex@openai.com>, as previously requested. Absolute lab paths and opaque callback/RVA evidence labels are deliberately retained; this is not a portable installer.
+
+Fresh publication build: Release/i686 Clang20.1.8,196 build steps; CTest23/23 PASS (22 gameplay/offline targets plus the launcher-only pre-injection observation-delay target). Historical MinGW duplicate exception RTTI linker warnings remain; build and tests completed. Publication lint: zero failures,198 warnings, limited to intentionally retained absolute developer paths and opaque IDA-style function labels used as evidence, not copied original implementation. Build output is ignored and excluded from the commit.
+Historical reports saying "not pushed" describe their local completion checkpoint; this publication subsequently exports GAME-0003/0004 source and written results. Native evidence and binaries remain local.

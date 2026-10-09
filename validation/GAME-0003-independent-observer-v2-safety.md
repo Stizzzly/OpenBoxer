@@ -1,0 +1,15 @@
+# GAME-0003 merged observer v2 safety gate
+
+Result: PASS_OBSERVER_SAFETY_FOR_SHORT_ROOT_OWNED_ORIGINAL_CAPTURE; not GAME-0003 gameplay equivalence.
+
+Frozen DLL F9E10C7AB1A123FEE9BE832507549BA2BD9B468C040849880904E71D1015BE98 and all143 manifest file hashes verified exact. Both frozen approved metadata copies match manifest. V1 whole observer safety remains applicable; changed whole source only adds retained sequence access for correlation. Twelve prior semantic cores retain recorded source hashes. Dedicated selector source/assembly, metadata/header, wiring and tests independently read.
+
+Selector addon installs only for explicit AI_CAPTURE and Clip original flag, required directory and original fixed base. It verifies complete selector thunk nearJMP1C26->6E40 and all42 approved dispatcher CALL targets. No clip_runtime behavior change or renderer body patch. Root executable/module hash and actual loaded image verification remains required.
+
+The addon forwards the original complete selector6E40 once on every route, selected or not. Saved PUSHAD frame offset2 is incoming EBP, captured before assigning wrapper EBP. Selection reads readable parentEBP-24 signed loop index1 and matches exact caller return, owner, literal pointer/name, variant and desired/remembered state from the approved42 roles. It checks bounded model112 and272-byte collection, thread and nesting; saves actor/model/records, clock and whole retained sequence. No animation replacement admission is broadened. Quotas2/site and45 seconds bound captures; root closes exact owned session afterwards, hooks remain transparently forwarding.
+
+Assembly preserves raw registers/flags and complete FXSAVE/FNSTENV before instrumentation and restores before original call/return. Independent execution of dedicated ai_animation_observer_tests passes ret4, callee registers/ESP/EAX, live80,540-byte fullFP and XMM0..7 comparison. This proves the forwarding mechanism under test inputs, not every original selector effect.
+
+Record original_forward_count is a structural assertion serialized as1, not a native measured counter. Native proof must use guarded route and the frozen forwarding audit; no fabricated dynamic count. Likewise desired==remembered at entry reflects the original preceding write and alone does not prove a transition. whole_exit_sequence is the latest retained whole sequence and may be stale: correlate state/type/thread/order and relevant whole event before claiming launch. If correlation or parent-frame provenance is insufficient, animation identity/causality is BLOCKED.
+
+Root may switch after v1 owned process cleanup to this exact immutable v2, AI_CAPTURE1/required directory/LIMIT<=12/ORIGINAL_UNITSall and clear damage replacement mode. Preverify selector42 routes and thunk plus v1 whole72 sites/IAT/caller and executable hash. Collect short original observations without injected state or player strikes/block, record actual loaded module/hash/base and own cleanup. Gameplay differential, candidate natural route and diagnostics-off delivery gates remain pending.

@@ -1,3 +1,4 @@
+#include "launcher_preinject_delay.hpp"
 #include <cstring>
 #include <windows.h>
 #include <tlhelp32.h>
@@ -5,6 +6,7 @@
 #include <filesystem>
 #include <string>
 #include <stdexcept>
+#include "launcher_worker_delay.hpp"
 
 static_assert(sizeof(void*) == 4, "injector must be x86");
 namespace fs = std::filesystem;
@@ -31,7 +33,7 @@ static DWORD remoteCall(HANDLE process, uintptr_t entry, void* argument,DWORD ti
     DWORD result=0; check(GetExitCodeThread(thread.value,&result)!=0,"remote thread result");
     return result;
 }
-static void inject(HANDLE process,DWORD pid,const fs::path& dll,bool fixture,bool worldFixture=false,bool textureFixture=false,bool uploadFixture=false,bool lightingFixture=false,bool selectionFixture=false,bool drawFixture=false,bool characterFixture=false,bool characterReplay=false,bool animationFixture=false,bool animationReplay=false,bool clipFixture=false,bool clipReplay=false,bool framesFixture=false,bool framesReplay=false,bool actionFixture=false,bool actionReplay=false,bool strikeFixture=false,bool strikeReplay=false,bool damageFixture=false,bool damageReplay=false) {
+static void inject(HANDLE process,DWORD pid,const fs::path& dll,bool fixture,bool worldFixture=false,bool textureFixture=false,bool uploadFixture=false,bool lightingFixture=false,bool selectionFixture=false,bool drawFixture=false,bool characterFixture=false,bool characterReplay=false,bool animationFixture=false,bool animationReplay=false,bool clipFixture=false,bool clipReplay=false,bool framesFixture=false,bool framesReplay=false,bool actionFixture=false,bool actionReplay=false,bool strikeFixture=false,bool strikeReplay=false,bool damageFixture=false,bool damageReplay=false,bool aiFixture=false,bool aiReplay=false,bool continuationFixture=false,bool continuationReplay=false) {
     const auto dllText=dll.string();
     void* remote=VirtualAllocEx(process,nullptr,dllText.size()+1,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE);
     check(remote!=nullptr,"remote allocation");
@@ -45,9 +47,10 @@ static void inject(HANDLE process,DWORD pid,const fs::path& dll,bool fixture,boo
     check(loaded!=0,"remote LoadLibrary"); check(VirtualFreeEx(process,remote,0,MEM_RELEASE)!=0,"remote path free");
     HMODULE local=LoadLibraryExA(dllText.c_str(),nullptr,DONT_RESOLVE_DLL_REFERENCES); check(local!=nullptr,"map replacement export");
     const auto invoke=[&](const char* name,void* argument) { FARPROC exportAddress=GetProcAddress(local,name); check(exportAddress!=nullptr,"replacement export missing"); return remoteCall(process,loaded+reinterpret_cast<uintptr_t>(exportAddress)-reinterpret_cast<uintptr_t>(local),argument,characterReplay?300000:60000); };
-    const DWORD bootstrap=invoke("ms3d_bootstrap",damageReplay?reinterpret_cast<void*>(23):damageFixture?reinterpret_cast<void*>(22):strikeReplay?reinterpret_cast<void*>(21):strikeFixture?reinterpret_cast<void*>(20):actionReplay?reinterpret_cast<void*>(19):actionFixture?reinterpret_cast<void*>(18):framesReplay?reinterpret_cast<void*>(17):framesFixture?reinterpret_cast<void*>(16):clipReplay?reinterpret_cast<void*>(15):clipFixture?reinterpret_cast<void*>(14):animationReplay?reinterpret_cast<void*>(13):animationFixture?reinterpret_cast<void*>(12):characterReplay?reinterpret_cast<void*>(11):characterFixture?reinterpret_cast<void*>(10):drawFixture?reinterpret_cast<void*>(9):selectionFixture?reinterpret_cast<void*>(8):lightingFixture?reinterpret_cast<void*>(7):uploadFixture?reinterpret_cast<void*>(6):textureFixture?reinterpret_cast<void*>(5):worldFixture?reinterpret_cast<void*>(4):fixture?reinterpret_cast<void*>(3):nullptr);
+    const DWORD bootstrap=invoke("ms3d_bootstrap",continuationReplay?reinterpret_cast<void*>(27):continuationFixture?reinterpret_cast<void*>(26):aiReplay?reinterpret_cast<void*>(25):aiFixture?reinterpret_cast<void*>(24):damageReplay?reinterpret_cast<void*>(23):damageFixture?reinterpret_cast<void*>(22):strikeReplay?reinterpret_cast<void*>(21):strikeFixture?reinterpret_cast<void*>(20):actionReplay?reinterpret_cast<void*>(19):actionFixture?reinterpret_cast<void*>(18):framesReplay?reinterpret_cast<void*>(17):framesFixture?reinterpret_cast<void*>(16):clipReplay?reinterpret_cast<void*>(15):clipFixture?reinterpret_cast<void*>(14):animationReplay?reinterpret_cast<void*>(13):animationFixture?reinterpret_cast<void*>(12):characterReplay?reinterpret_cast<void*>(11):characterFixture?reinterpret_cast<void*>(10):drawFixture?reinterpret_cast<void*>(9):selectionFixture?reinterpret_cast<void*>(8):lightingFixture?reinterpret_cast<void*>(7):uploadFixture?reinterpret_cast<void*>(6):textureFixture?reinterpret_cast<void*>(5):worldFixture?reinterpret_cast<void*>(4):fixture?reinterpret_cast<void*>(3):nullptr);
     if(bootstrap!=0) { FreeLibrary(local); throw std::runtime_error("replacement initialization rejected: "+std::to_string(bootstrap)); }
-    if(fixture) { const DWORD result=invoke(damageReplay?"damage_replay_worker":damageFixture?"damage_fixture_worker":strikeReplay?"strike_replay_worker":strikeFixture?"strike_fixture_worker":actionReplay?"action_replay_worker":actionFixture?"action_fixture_worker":framesReplay?"frames_replay_worker":framesFixture?"frames_fixture_worker":clipReplay?"clip_replay_worker":clipFixture?"clip_fixture_worker":animationReplay?"animation_replay_worker":animationFixture?"animation_fixture_worker":characterReplay?"character_replay_worker":characterFixture?"character_fixture_worker":drawFixture?"draw_fixture_worker":selectionFixture?"selection_fixture_worker":lightingFixture?"lighting_fixture_worker":uploadFixture?"upload_fixture_worker":textureFixture?"texture_fixture_worker":worldFixture?"world0001_fixture_worker":"ms3d_fixture_worker",nullptr); std::printf("%s fixture worker result=%lu, reports C:/Users/ADMIN/Boxer-lab/ms3d/\n",(damageFixture || damageReplay)?"GAME-0002":(strikeFixture || strikeReplay)?"GAME-0001":(actionFixture || actionReplay)?"ANIM-0004":(framesFixture || framesReplay)?"ANIM-0003":(clipFixture || clipReplay)?"ANIM-0002":(animationFixture || animationReplay)?"ANIM-0001":(characterFixture || characterReplay)?"RENDER-0006":drawFixture?"RENDER-0005":selectionFixture?"RENDER-0004":lightingFixture?"RENDER-0003":uploadFixture?"RENDER-0002":textureFixture?"RENDER-0001":worldFixture?"WORLD-0001":"IO-0003",result); check(result==0,"fixture worker differences or failure"); }
+    if(fixture){char delayText[64]{};const DWORD count=GetEnvironmentVariableA("OPENBOXER_WORKER_OBSERVE_DELAY_MS",delayText,sizeof(delayText));check(count<sizeof(delayText),"worker observation delay text too long");const unsigned delay=launcher_policy::workerObserveDelay(delayText);if(delay){std::printf("Own PID %lu DLL initialized at actual module base %08lx; worker observation delay %u ms.\n",pid,loaded,delay);std::fflush(stdout);Sleep(delay);}}
+    if(fixture) { const DWORD result=invoke(continuationReplay?"ai_continuation_replay_worker":continuationFixture?"ai_continuation_fixture_worker":aiReplay?"ai_attack_replay_worker":aiFixture?"ai_attack_fixture_worker":damageReplay?"damage_replay_worker":damageFixture?"damage_fixture_worker":strikeReplay?"strike_replay_worker":strikeFixture?"strike_fixture_worker":actionReplay?"action_replay_worker":actionFixture?"action_fixture_worker":framesReplay?"frames_replay_worker":framesFixture?"frames_fixture_worker":clipReplay?"clip_replay_worker":clipFixture?"clip_fixture_worker":animationReplay?"animation_replay_worker":animationFixture?"animation_fixture_worker":characterReplay?"character_replay_worker":characterFixture?"character_fixture_worker":drawFixture?"draw_fixture_worker":selectionFixture?"selection_fixture_worker":lightingFixture?"lighting_fixture_worker":uploadFixture?"upload_fixture_worker":textureFixture?"texture_fixture_worker":worldFixture?"world0001_fixture_worker":"ms3d_fixture_worker",nullptr); std::printf("%s fixture worker result=%lu, reports C:/Users/ADMIN/Boxer-lab/ms3d/\n",(continuationFixture || continuationReplay)?"GAME-0004":(aiFixture || aiReplay)?"GAME-0003":(damageFixture || damageReplay)?"GAME-0002":(strikeFixture || strikeReplay)?"GAME-0001":(actionFixture || actionReplay)?"ANIM-0004":(framesFixture || framesReplay)?"ANIM-0003":(clipFixture || clipReplay)?"ANIM-0002":(animationFixture || animationReplay)?"ANIM-0001":(characterFixture || characterReplay)?"RENDER-0006":drawFixture?"RENDER-0005":selectionFixture?"RENDER-0004":lightingFixture?"RENDER-0003":uploadFixture?"RENDER-0002":textureFixture?"RENDER-0001":worldFixture?"WORLD-0001":"IO-0003",result); check(result==0,"fixture worker differences or failure"); }
     FreeLibrary(local);
 }
 // The supplied entry RVA is ABI metadata. Hardware breakpoints alter debugger
@@ -113,6 +116,11 @@ int main(int argc, char** argv) {
     PROCESS_INFORMATION process{};
     Handle processHandle, mainThread;
     try {
+        char preinjectDelayText[128]{};
+        const DWORD preinjectDelayLength=GetEnvironmentVariableA(
+            "OPENBOXER_PREINJECT_OBSERVE_DELAY_MS",preinjectDelayText,sizeof(preinjectDelayText));
+        check(preinjectDelayLength<sizeof(preinjectDelayText),"pre-injection observation delay text too long");
+        const unsigned preinjectDelay=launcher_policy::preinjectObserveDelay(preinjectDelayText);
         if(argc==5 && std::strcmp(argv[1],"--attach")==0 && std::strcmp(argv[4],"--fixture")==0) {
             const DWORD pid=static_cast<DWORD>(std::stoul(argv[2]));
             Handle attached{OpenProcess(PROCESS_CREATE_THREAD|PROCESS_VM_OPERATION|PROCESS_VM_READ|PROCESS_VM_WRITE|PROCESS_QUERY_INFORMATION,FALSE,pid)};
@@ -127,6 +135,10 @@ int main(int argc, char** argv) {
         const bool uploadFixtures=std::strcmp(argv[1],"--upload-fixture")==0;
         const bool lightingFixtures=std::strcmp(argv[1],"--lighting-fixture")==0;
         const bool selectionFixtures=std::strcmp(argv[1],"--selection-fixture")==0;
+        const bool continuationFixtures=std::strcmp(argv[1],"--ai-continuation-fixture")==0;
+        const bool continuationReplays=std::strcmp(argv[1],"--ai-continuation-replay")==0;
+        const bool aiFixtures=std::strcmp(argv[1],"--ai-fixture")==0;
+        const bool aiReplays=std::strcmp(argv[1],"--ai-replay")==0;
         const bool damageFixtures=std::strcmp(argv[1],"--damage-fixture")==0;
         const bool damageReplays=std::strcmp(argv[1],"--damage-replay")==0;
         const bool strikeFixtures=std::strcmp(argv[1],"--strike-fixture")==0;
@@ -142,7 +154,7 @@ int main(int argc, char** argv) {
         const bool characterReplays=std::strcmp(argv[1],"--character-replay")==0;
         const bool characterFixtures=std::strcmp(argv[1],"--character-fixture")==0;
         const bool drawFixtures=std::strcmp(argv[1],"--draw-fixture")==0;
-        const bool runFixtures=std::strcmp(argv[1],"--fixture")==0 || worldFixtures || textureFixtures || uploadFixtures || lightingFixtures || selectionFixtures || drawFixtures || characterFixtures || characterReplays || animationFixtures || animationReplays || clipFixtures || clipReplays || framesFixtures || framesReplays || actionFixtures || actionReplays || strikeFixtures || strikeReplays || damageFixtures || damageReplays;
+        const bool runFixtures=std::strcmp(argv[1],"--fixture")==0 || worldFixtures || textureFixtures || uploadFixtures || lightingFixtures || selectionFixtures || drawFixtures || characterFixtures || characterReplays || animationFixtures || animationReplays || clipFixtures || clipReplays || framesFixtures || framesReplays || actionFixtures || actionReplays || strikeFixtures || strikeReplays || damageFixtures || damageReplays || aiFixtures || aiReplays || continuationFixtures || continuationReplays;
         const std::string mode=runFixtures?"replace":argv[2];
         if(mode!="original" && mode!="pass-through" && mode!="shadow" && mode!="replace") throw std::runtime_error("invalid mode");
         const fs::path lab="C:/Users/ADMIN/Boxer-lab/ms3d";
@@ -158,12 +170,17 @@ int main(int argc, char** argv) {
         processHandle.value=process.hProcess; mainThread.value=process.hThread;
         std::printf("Created own explicit test copy PID %lu; waiting for CRT-ready checkpoint.\n",process.dwProcessId); std::fflush(stdout);
         parkAtInitializedCheckpoint(process);
+        if(preinjectDelay) {
+            std::printf("Own PID %lu parked at CRT-ready checkpoint; pre-injection observation delay %u ms.\n",process.dwProcessId,preinjectDelay);
+            std::fflush(stdout);
+            Sleep(preinjectDelay);
+        }
         char guardDelay[32]{};
         if(GetEnvironmentVariableA("OPENBOXER_WORLD_GUARD_DELAY_MS",guardDelay,sizeof(guardDelay))) {
             const unsigned long requested=std::stoul(guardDelay);
             Sleep((std::min)(requested,5000ul));
         }
-        if(mode!="original") inject(process.hProcess,process.dwProcessId,dll,runFixtures,worldFixtures,textureFixtures,uploadFixtures,lightingFixtures,selectionFixtures,drawFixtures,characterFixtures,characterReplays,animationFixtures,animationReplays,clipFixtures,clipReplays,framesFixtures,framesReplays,actionFixtures,actionReplays,strikeFixtures,strikeReplays,damageFixtures,damageReplays);
+        if(mode!="original") inject(process.hProcess,process.dwProcessId,dll,runFixtures,worldFixtures,textureFixtures,uploadFixtures,lightingFixtures,selectionFixtures,drawFixtures,characterFixtures,characterReplays,animationFixtures,animationReplays,clipFixtures,clipReplays,framesFixtures,framesReplays,actionFixtures,actionReplays,strikeFixtures,strikeReplays,damageFixtures,damageReplays,aiFixtures,aiReplays,continuationFixtures,continuationReplays);
         if(runFixtures) { check(TerminateProcess(process.hProcess,0)!=0,"terminate own completed fixture process"); return 0; }
         check(ResumeThread(process.hThread)!=static_cast<DWORD>(-1),"resume test copy");
         std::printf("Started explicit test copy PID %lu in %s mode.\n",process.dwProcessId,mode.c_str());

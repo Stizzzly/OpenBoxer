@@ -49,7 +49,7 @@ inline uint32_t word(const void *p){uint32_t value;std::memcpy(&value,p,4);retur
 inline void put(void *p,uint32_t value){std::memcpy(p,&value,4);}
 inline uint32_t address(const void *p){return uint32_t(reinterpret_cast<uintptr_t>(p));}
 inline void *pointer(uint32_t p){return reinterpret_cast<void*>(uintptr_t(p));}
-uint32_t update(State &,int32_t mode);
+uint32_t update(State &,int32_t mode,bool aiInitiation=false,bool aiContinuation=false);
 // Pure getter/RNG capture is compact: no actor/body snapshot per event.
 struct CompactEvent {
     uint32_t site = 0;
@@ -61,6 +61,6 @@ struct CompactEvent {
     alignas(16) std::array<uint8_t, 512> fpBefore{};
     alignas(16) std::array<uint8_t, 512> fpAfter{};
 };
-bool installObserver(uintptr_t base,bool force=false);
+bool installObserver(uintptr_t base,bool force=false,bool includeAi=false);
 bool restoreObserver();
 } // namespace damage

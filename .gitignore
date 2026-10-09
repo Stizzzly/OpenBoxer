@@ -19,3 +19,4 @@ __pycache__/
 *.zip
 .env
 .env.*
+**/observer-*-src/

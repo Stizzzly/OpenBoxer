@@ -1,0 +1,5 @@
+# REQ-GAME-0004-02 — Reciprocal player pending-hit consumption
+
+Relatedspecification GAME-0004-opponent-single-attack-continuation.md. Blockingcurrenttimerstage NO; blockinganyclaim of reimplementedopponenthitdelivery YES.
+
+CONFIRMED originalplayer41EF90 consumespending5761C8 inline1FA1C..1FED0 underAIbaseduration*.5<AI timer, beforeopponentwholecaller2D8E6. Noindependentwholeconsumerestablished. Laterworkmustestablishlegitimatewholeplayerboundary/domainandexactreaction/block/health/impulse/audio/pool/combo behavior, notmidbodyoracle. CurrentGAME-0004retainsthisoriginaldependency; naturalplayerconsumeractivationdoesnotconstitutereimplementation. SimultaneousAIpending57622C/playerattack/recoil/activecombo routesremainoriginalfallbackunlessindependentlyapproved.

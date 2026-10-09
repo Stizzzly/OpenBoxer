@@ -1,6 +1,6 @@
 # OpenBoxer
 
-> **Validated bounded scope (2026-10-08):** GAME-0002 ordinary-Z damage, block and reaction passed final comparison and diagnostics-off delivery checks. Generic Damage remains original by default. See [report](validation/GAME-0002.md).
+> **Validated bounded scope (2026-10-10):** opponent Z/X/C attack initiation, continuation and completion now have guarded replacements. Differential/native checks and an ordinary packaged pause/Continue smoke passed. See [GAME-0003](validation/GAME-0003.md) and [GAME-0004](validation/GAME-0004.md).
 
 An experimental behavioral reimplementation of **Месть боксера. Московский криминалитет**, developed by [Stizzzly](https://github.com/Stizzzly) with **AI-assisted co-development by OpenAI Codex**.
 
@@ -14,6 +14,8 @@ This is an incremental replacement DLL and guarded launcher for the original 32-
 - Fresh Z/X/C strike registration within a bounded whole-player-update path. Strict distance intervals are `(1,4)`, `(1,5)`, `(1,6)`; misses still start the attack animation. Ordinary-Z delayed blocking/damage now have a bounded validated opt-in replacement.
 
 GAME-0001 validation: 108 paired original/replacement scenarios, exact state/callback/FP comparisons, register/stack checks, admission rejection tests, real hit/miss observations and source-correlated replay. Fourteen CTest checks pass. These are bounded results, not proof that the entire game has been reconstructed. See [final independent report](validation/GAME-0001-independent-final.md).
+
+The latest GAME-0004 candidate passed 22 own offline targets, 357 paired continuation cases, twelve approved-source replays, and preserved 337 AI / 60 damage regression pairs. The exported source also contains a separately tested launcher observation-delay helper. Reciprocal player hit consumption remains original; unsupported states fall back before effects. Local native captures and immutable build artifacts referenced by reports are excluded from this repository.
 
 ## Source layout
 
@@ -48,6 +50,9 @@ Supported original executable SHA-256:
 From the lab directory, after making the required test-copy setup:
 
 ```powershell
+$env:OPENBOXER_DAMAGE_MODE = 'replace'
+$env:OPENBOXER_AI_MODE = 'replace'
+$env:OPENBOXER_AI_CONTINUATION_MODE = 'replace'
 & '<absolute build path>/ms3d_launcher.exe' '<absolute build path>/ms3d_replacement.dll' replace
 ```
 
